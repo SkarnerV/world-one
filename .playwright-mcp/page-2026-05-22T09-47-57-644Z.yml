@@ -1,0 +1,45 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e3]: World OneOntology Agent
+    - generic [ref=e4]: Chat
+  - generic:
+    - generic:
+      - generic: Apps
+    - iframe [ref=e5]:
+      - generic [ref=f1e2]: 暂无已注册应用
+  - generic [ref=e6]:
+    - generic [ref=e7]:
+      - generic [ref=e8]:
+        - button "All" [ref=e9] [cursor=pointer]:
+          - img [ref=e10]
+        - button "Chats" [ref=e15] [cursor=pointer]:
+          - img [ref=e16]
+        - button "Tasks" [ref=e18] [cursor=pointer]:
+          - img [ref=e19]
+        - button "Events" [ref=e22] [cursor=pointer]:
+          - img [ref=e23]
+      - generic [ref=e25]:
+        - button "Apps" [ref=e26] [cursor=pointer]:
+          - img [ref=e27]
+        - button "⚙ World One Settings" [ref=e32] [cursor=pointer]:
+          - img [ref=e33]
+        - generic "User" [ref=e36]:
+          - generic [ref=e37]: W
+    - generic [ref=e39]:
+      - generic [ref=e40]: All
+      - button "新建对话" [ref=e41] [cursor=pointer]:
+        - img [ref=e42]
+      - button "收起面板" [ref=e45] [cursor=pointer]:
+        - img [ref=e46]
+    - generic [ref=e49]:
+      - generic [ref=e51]:
+        - heading "World One" [level=2] [ref=e52]
+        - paragraph [ref=e53]: Your personal AI assistant.
+        - generic [ref=e54]:
+          - generic [ref=e55] [cursor=pointer]: Hello
+          - generic [ref=e56] [cursor=pointer]: welcome.chip2
+          - generic [ref=e57] [cursor=pointer]: welcome.chip3
+      - generic [ref=e59]:
+        - textbox "Type a message…" [ref=e60]
+        - button [ref=e61] [cursor=pointer]:
+          - img [ref=e62]
