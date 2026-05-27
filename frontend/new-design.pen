@@ -3744,7 +3744,7 @@
               "fill": "#CBD5E1",
               "textGrowth": "fixed-width",
               "width": "fill_container",
-              "content": "V1 保留不动。V2 主页面按纵向顺序排列，01B 作为聊天页变体放在 Page 01 右侧。",
+              "content": "V1 保留不动。V2 编号保留 01 聊天、02 画布、03 设置、04 事件、06 任务、07 应用；Memory 作为 07A 应用模块衍生页。",
               "fontFamily": "Inter",
               "fontSize": 14,
               "fontWeight": "normal"
@@ -3873,44 +3873,6 @@
             },
             {
               "type": "frame",
-              "id": "oL1hM",
-              "name": "i4",
-              "width": "fill_container",
-              "height": 76,
-              "fill": "#F8FAFC",
-              "cornerRadius": 8,
-              "stroke": {
-                "thickness": 1,
-                "fill": "#E2E8F0"
-              },
-              "layout": "vertical",
-              "gap": 4,
-              "padding": 12,
-              "children": [
-                {
-                  "type": "text",
-                  "id": "hJR8P",
-                  "name": "i4t",
-                  "fill": "#0F172A",
-                  "content": "04 Memory",
-                  "fontFamily": "Inter",
-                  "fontSize": 13,
-                  "fontWeight": "750"
-                },
-                {
-                  "type": "text",
-                  "id": "5ZRia",
-                  "name": "i4d",
-                  "fill": "#475569",
-                  "content": "内置记忆页面 / 固定入口",
-                  "fontFamily": "Inter",
-                  "fontSize": 12,
-                  "fontWeight": "normal"
-                }
-              ]
-            },
-            {
-              "type": "frame",
               "id": "RoRIE",
               "name": "i5",
               "width": "fill_container",
@@ -3930,7 +3892,7 @@
                   "id": "tTxZa",
                   "name": "i5t",
                   "fill": "#0F172A",
-                  "content": "05 事件模式",
+                  "content": "04 事件处理",
                   "fontFamily": "Inter",
                   "fontSize": 13,
                   "fontWeight": "750"
@@ -3940,7 +3902,7 @@
                   "id": "EZ0oJ",
                   "name": "i5d",
                   "fill": "#475569",
-                  "content": "工具 / Widget / Agent 事件流",
+                  "content": "补参 / 恢复工具链",
                   "fontFamily": "Inter",
                   "fontSize": 12,
                   "fontWeight": "normal"
@@ -3968,7 +3930,7 @@
                   "id": "vt9QQ",
                   "name": "i6t",
                   "fill": "#0F172A",
-                  "content": "06 任务模式",
+                  "content": "05 任务处理",
                   "fontFamily": "Inter",
                   "fontSize": 13,
                   "fontWeight": "750"
@@ -3978,7 +3940,7 @@
                   "id": "4cyv7",
                   "name": "i6d",
                   "fill": "#475569",
-                  "content": "任务队列 / 完成 / 归档",
+                  "content": "任务线程 / Canvas 恢复",
                   "fontFamily": "Inter",
                   "fontSize": 12,
                   "fontWeight": "normal"
@@ -4006,7 +3968,7 @@
                   "id": "QS937",
                   "name": "cardTitleF",
                   "fill": "#0F172A",
-                  "content": "07 全部应用",
+                  "content": "06 全部应用",
                   "fontFamily": "Inter",
                   "fontSize": 14,
                   "fontWeight": "700"
@@ -4016,7 +3978,7 @@
                   "id": "sfGbB",
                   "name": "cardDescF",
                   "fill": "#64748B",
-                  "content": "应用清单 / 状态",
+                  "content": "应用入口 / Memory 衍生页",
                   "fontFamily": "Inter",
                   "fontSize": 12,
                   "fontWeight": "normal"
@@ -4244,41 +4206,6 @@
                       "name": "taskT",
                       "fill": "#94A3B8",
                       "content": "Tasks",
-                      "fontFamily": "Inter",
-                      "fontSize": 10,
-                      "fontWeight": "650"
-                    }
-                  ]
-                },
-                {
-                  "type": "frame",
-                  "id": "TKXhb",
-                  "name": "memory",
-                  "width": 48,
-                  "height": 54,
-                  "fill": "#FFFFFF00",
-                  "cornerRadius": 8,
-                  "layout": "vertical",
-                  "gap": 3,
-                  "justifyContent": "center",
-                  "alignItems": "center",
-                  "children": [
-                    {
-                      "type": "icon_font",
-                      "id": "hoVmP",
-                      "name": "memIconQ1",
-                      "width": 17,
-                      "height": 17,
-                      "iconFontName": "database",
-                      "iconFontFamily": "lucide",
-                      "fill": "#94A3B8"
-                    },
-                    {
-                      "type": "text",
-                      "id": "gVClS",
-                      "name": "memLabelQ1",
-                      "fill": "#94A3B8",
-                      "content": "记忆",
                       "fontFamily": "Inter",
                       "fontSize": 10,
                       "fontWeight": "650"
@@ -6128,18 +6055,16 @@
       "width": 1440,
       "height": 1120,
       "fill": "#F6F8FB",
-      "layout": "vertical",
-      "gap": 18,
-      "padding": [
-        34,
-        44
-      ],
+      "layout": "none",
       "children": [
         {
           "type": "frame",
           "id": "211Tk",
+          "x": 44,
+          "y": 34,
           "name": "head",
-          "width": "fill_container",
+          "width": 1352,
+          "height": 90,
           "layout": "vertical",
           "gap": 6,
           "children": [
@@ -6170,7 +6095,7 @@
               "fill": "#64748B",
               "textGrowth": "fixed-width",
               "width": "fill_container",
-              "content": "画布模式沿用聊天页结构：左侧仍可查看历史对话，中间显示画布，右侧展示当前 Agent 状态。",
+              "content": "用户从应用面板选择 Memory 后进入画布；Canvas 承载 memory-one 的主应用模块，只保留筛选、删除和新增入口。",
               "fontFamily": "Inter",
               "fontSize": 14,
               "fontWeight": "normal"
@@ -6179,10 +6104,12 @@
         },
         {
           "type": "frame",
-          "id": "Jw7UA",
+          "id": "9n86v",
+          "x": 44,
+          "y": 142,
           "name": "Canvas Mode App",
           "clip": true,
-          "width": "fill_container",
+          "width": 1352,
           "height": 960,
           "fill": "#FFFFFF",
           "cornerRadius": 8,
@@ -6190,13 +6117,16 @@
             "thickness": 1,
             "fill": "#E2E8F0"
           },
+          "layout": "none",
           "children": [
             {
               "type": "frame",
               "id": "QUSCq",
+              "x": 0,
+              "y": 0,
               "name": "Global Switch Rail",
               "width": 64,
-              "height": "fill_container",
+              "height": 960,
               "fill": "#020617",
               "layout": "vertical",
               "gap": 10,
@@ -6243,7 +6173,7 @@
                   "name": "chats",
                   "width": 48,
                   "height": 54,
-                  "fill": "#1D4ED8",
+                  "fill": "#FFFFFF00",
                   "cornerRadius": 8,
                   "layout": "vertical",
                   "gap": 3,
@@ -6258,17 +6188,17 @@
                       "height": 17,
                       "iconFontName": "message-square",
                       "iconFontFamily": "lucide",
-                      "fill": "#FFFFFF"
+                      "fill": "#94A3B8"
                     },
                     {
                       "type": "text",
                       "id": "l1MaS",
                       "name": "chatT",
-                      "fill": "#FFFFFF",
+                      "fill": "#94A3B8",
                       "content": "聊天",
                       "fontFamily": "Inter",
                       "fontSize": 10,
-                      "fontWeight": "700"
+                      "fontWeight": "650"
                     }
                   ]
                 },
@@ -6344,41 +6274,6 @@
                 },
                 {
                   "type": "frame",
-                  "id": "DxTts",
-                  "name": "memory",
-                  "width": 48,
-                  "height": 54,
-                  "fill": "#FFFFFF00",
-                  "cornerRadius": 8,
-                  "layout": "vertical",
-                  "gap": 3,
-                  "justifyContent": "center",
-                  "alignItems": "center",
-                  "children": [
-                    {
-                      "type": "icon_font",
-                      "id": "iI5cW",
-                      "name": "memIconQ2",
-                      "width": 17,
-                      "height": 17,
-                      "iconFontName": "database",
-                      "iconFontFamily": "lucide",
-                      "fill": "#94A3B8"
-                    },
-                    {
-                      "type": "text",
-                      "id": "HVeLx",
-                      "name": "memLabelQ2",
-                      "fill": "#94A3B8",
-                      "content": "记忆",
-                      "fontFamily": "Inter",
-                      "fontSize": 10,
-                      "fontWeight": "650"
-                    }
-                  ]
-                },
-                {
-                  "type": "frame",
                   "id": "eoSKh",
                   "name": "fill",
                   "width": 1,
@@ -6391,7 +6286,7 @@
                   "name": "apps",
                   "width": 42,
                   "height": 42,
-                  "fill": "#0F172A",
+                  "fill": "#1D4ED8",
                   "cornerRadius": 8,
                   "justifyContent": "center",
                   "alignItems": "center",
@@ -6404,7 +6299,7 @@
                       "height": 17,
                       "iconFontName": "layout-grid",
                       "iconFontFamily": "lucide",
-                      "fill": "#CBD5E1"
+                      "fill": "#FFFFFF"
                     }
                   ]
                 },
@@ -6435,63 +6330,78 @@
             },
             {
               "type": "frame",
-              "id": "jZ5rr",
-              "name": "Canvas Main",
-              "width": "fill_container",
-              "height": "fill_container",
+              "id": "xRcRF",
+              "x": 64,
+              "y": 0,
+              "name": "memCopy",
+              "width": 908,
+              "height": 960,
               "fill": "#F6F8FB",
               "layout": "vertical",
+              "gap": 18,
+              "padding": 24,
               "children": [
                 {
                   "type": "frame",
-                  "id": "aXYhr",
-                  "name": "top",
+                  "id": "oxkAM",
+                  "name": "Memory 顶部",
                   "width": "fill_container",
-                  "height": 56,
-                  "fill": "#FFFFFF",
-                  "stroke": {
-                    "thickness": {
-                      "bottom": 1
-                    },
-                    "fill": "#E2E8F0"
-                  },
-                  "gap": 12,
-                  "padding": [
-                    0,
-                    22
-                  ],
+                  "height": 87,
+                  "gap": 16,
                   "alignItems": "center",
                   "children": [
                     {
                       "type": "frame",
-                      "id": "fQszh",
-                      "name": "sp",
+                      "id": "16lRv",
+                      "name": "copyM",
                       "width": "fill_container",
-                      "height": 1,
-                      "fill": "#FFFFFF00"
+                      "layout": "vertical",
+                      "gap": 4,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "7jDBX",
+                          "name": "titleM",
+                          "fill": "#0F172A",
+                          "content": "Memory 应用模块",
+                          "fontFamily": "Inter",
+                          "fontSize": 30,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "b88pv",
+                          "name": "subM",
+                          "fill": "#64748B",
+                          "textGrowth": "fixed-width",
+                          "width": 540,
+                          "content": "作为 memory-one 应用在 Canvas 中打开；支持筛选、删除确认、新增和保留，不提供直接编辑。",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        }
+                      ]
                     },
                     {
                       "type": "frame",
-                      "id": "dfimD",
-                      "name": "exit",
-                      "height": 34,
-                      "fill": "#F8FAFC",
+                      "id": "Wu8ux",
+                      "name": "searchM",
+                      "width": 118,
+                      "height": 38,
+                      "fill": "#FFFFFF",
                       "cornerRadius": 8,
                       "stroke": {
                         "thickness": 1,
                         "fill": "#CBD5E1"
                       },
-                      "gap": 7,
-                      "padding": [
-                        0,
-                        12
-                      ],
-                      "alignItems": "center",
+                      "layout": "none",
                       "children": [
                         {
                           "type": "icon_font",
-                          "id": "B3usY",
-                          "name": "exI",
+                          "id": "aaNG8",
+                          "x": 12,
+                          "y": 11.5,
+                          "name": "searchIconM",
                           "width": 15,
                           "height": 15,
                           "iconFontName": "x",
@@ -6500,8 +6410,10 @@
                         },
                         {
                           "type": "text",
-                          "id": "mFM0x",
-                          "name": "exT",
+                          "id": "mq6lS",
+                          "x": 35,
+                          "y": 9.5,
+                          "name": "searchTextM",
                           "fill": "#0F172A",
                           "content": "退出画布",
                           "fontFamily": "Inter",
@@ -6513,43 +6425,24 @@
                   ]
                 },
                 {
-                  "type": "frame",
-                  "id": "rXYiZ",
-                  "name": "body",
-                  "width": "fill_container",
-                  "height": "fill_container",
-                  "padding": 20,
+                  "type": "group",
+                  "id": "lHeiT",
+                  "layout": "horizontal",
                   "children": [
                     {
                       "type": "frame",
-                      "id": "BeJp7",
-                      "name": "Graph Surface",
-                      "clip": true,
+                      "id": "BD5Wj",
+                      "name": "筛选栏",
                       "width": "fill_container",
-                      "height": "fill_container",
-                      "fill": "#FFFFFF",
-                      "cornerRadius": 8,
-                      "stroke": {
-                        "thickness": 1,
-                        "fill": "#E2E8F0"
-                      },
-                      "layout": "none",
+                      "gap": 8,
                       "children": [
                         {
                           "type": "frame",
-                          "id": "H4Yv4",
-                          "x": 18,
-                          "y": 18,
-                          "name": "bar",
-                          "width": 540,
-                          "height": 46,
-                          "fill": "#FFFFFF",
+                          "id": "HtqM9",
+                          "name": "chipAllN",
+                          "height": 32,
+                          "fill": "#111827",
                           "cornerRadius": 8,
-                          "stroke": {
-                            "thickness": 1,
-                            "fill": "#E2E8F0"
-                          },
-                          "gap": 10,
                           "padding": [
                             0,
                             12
@@ -6557,21 +6450,11 @@
                           "alignItems": "center",
                           "children": [
                             {
-                              "type": "icon_font",
-                              "id": "MBac3",
-                              "name": "barI",
-                              "width": 18,
-                              "height": 18,
-                              "iconFontName": "network",
-                              "iconFontFamily": "lucide",
-                              "fill": "#2563EB"
-                            },
-                            {
                               "type": "text",
-                              "id": "QbAFG",
-                              "name": "barT",
-                              "fill": "#0F172A",
-                              "content": "工作区事实 · 18 个节点 · 7 条关系",
+                              "id": "pM6ZV",
+                              "name": "chipAllTextN",
+                              "fill": "#FFFFFF",
+                              "content": "全部",
                               "fontFamily": "Inter",
                               "fontSize": 13,
                               "fontWeight": "700"
@@ -6580,151 +6463,562 @@
                         },
                         {
                           "type": "frame",
-                          "id": "a3NII",
-                          "x": 120,
-                          "y": 210,
-                          "name": "node1",
-                          "width": 160,
-                          "height": 82,
-                          "fill": "#EFF6FF",
+                          "id": "R1b1o",
+                          "name": "chipFactN",
+                          "height": 32,
+                          "fill": "#F8FAFC",
+                          "cornerRadius": 8,
+                          "stroke": {
+                            "thickness": 1,
+                            "fill": "#E2E8F0"
+                          },
+                          "padding": [
+                            0,
+                            12
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "VSeaC",
+                              "name": "chipFactTextN",
+                              "fill": "#334155",
+                              "content": "事实",
+                              "fontFamily": "Inter",
+                              "fontSize": 13,
+                              "fontWeight": "650"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "Kg7aF",
+                          "name": "chipGoalN",
+                          "height": 32,
+                          "fill": "#F8FAFC",
+                          "cornerRadius": 8,
+                          "stroke": {
+                            "thickness": 1,
+                            "fill": "#E2E8F0"
+                          },
+                          "padding": [
+                            0,
+                            12
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "SUgUp",
+                              "name": "chipGoalTextN",
+                              "fill": "#334155",
+                              "content": "目标",
+                              "fontFamily": "Inter",
+                              "fontSize": 13,
+                              "fontWeight": "650"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "XUKaI",
+                          "name": "chipPendingN",
+                          "height": 32,
+                          "fill": "#F8FAFC",
+                          "cornerRadius": 8,
+                          "stroke": {
+                            "thickness": 1,
+                            "fill": "#E2E8F0"
+                          },
+                          "padding": [
+                            0,
+                            12
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "oR8kv",
+                              "name": "chipPendingTextN",
+                              "fill": "#334155",
+                              "content": "待删除",
+                              "fontFamily": "Inter",
+                              "fontSize": 13,
+                              "fontWeight": "650"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "uoBCQ",
+                  "name": "Memory 主体",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "gap": 16,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "0pS3n",
+                      "name": "记忆列表",
+                      "width": "fill_container",
+                      "height": "fill_container",
+                      "fill": "#F8FAFC",
+                      "cornerRadius": 10,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": "#E2E8F0"
+                      },
+                      "layout": "vertical",
+                      "gap": 10,
+                      "padding": 14,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "MRvgf",
+                          "name": "listHeadO",
+                          "fill": "#64748B",
+                          "content": "记忆列表",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "800"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "EQJ7O",
+                          "name": "item1O",
+                          "width": "fill_container",
+                          "height": 92,
+                          "fill": "#FFFFFF",
                           "cornerRadius": 8,
                           "stroke": {
                             "thickness": 1,
                             "fill": "#BFDBFE"
                           },
                           "layout": "vertical",
-                          "gap": 5,
-                          "padding": 14,
+                          "gap": 6,
+                          "padding": 12,
                           "children": [
                             {
                               "type": "text",
-                              "id": "PTNz7",
-                              "name": "n1t",
-                              "fill": "#1D4ED8",
-                              "content": "工作区记忆",
+                              "id": "qjTNj",
+                              "name": "item1TitleO",
+                              "fill": "#0F172A",
+                              "content": "World One 是本体 Agent 主机",
                               "fontFamily": "Inter",
-                              "fontSize": 13,
-                              "fontWeight": "750"
+                              "fontSize": 14,
+                              "fontWeight": "700"
                             },
                             {
                               "type": "text",
-                              "id": "rQhS0",
-                              "name": "n1d",
-                              "fill": "#1D4ED8",
-                              "content": "事实 · 8 条",
-                              "fontFamily": "Geist Mono",
-                              "fontSize": 10,
+                              "id": "kWEKD",
+                              "name": "item1MetaO",
+                              "fill": "#64748B",
+                              "content": "事实 · 2026/05/26",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
                               "fontWeight": "normal"
-                            }
-                          ]
-                        },
-                        {
-                          "type": "frame",
-                          "id": "edzeV",
-                          "x": 360,
-                          "y": 360,
-                          "name": "node2",
-                          "width": 150,
-                          "height": 82,
-                          "fill": "#DBEAFE",
-                          "cornerRadius": 8,
-                          "stroke": {
-                            "thickness": 1,
-                            "fill": "#93C5FD"
-                          },
-                          "layout": "vertical",
-                          "gap": 5,
-                          "padding": 14,
-                          "children": [
-                            {
-                              "type": "text",
-                              "id": "N9fZ8",
-                              "name": "n2t",
-                              "fill": "#1D4ED8",
-                              "content": "画布上下文",
-                              "fontFamily": "Inter",
-                              "fontSize": 13,
-                              "fontWeight": "750"
                             },
                             {
                               "type": "text",
-                              "id": "ALBcv",
-                              "name": "n2d",
+                              "id": "m8qw0",
+                              "name": "item1SrcO",
                               "fill": "#2563EB",
-                              "content": "实时 · 活跃",
-                              "fontFamily": "Geist Mono",
-                              "fontSize": 10,
+                              "content": "来源：Page 1 对话 / Agent State",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
                               "fontWeight": "normal"
                             }
                           ]
-                        },
-                        {
-                          "type": "line",
-                          "id": "XDD8Z",
-                          "x": 275,
-                          "y": 292,
-                          "name": "edge",
-                          "width": 86,
-                          "height": 70,
-                          "stroke": {
-                            "align": "center",
-                            "thickness": 2,
-                            "fill": "#93C5FD"
-                          }
                         },
                         {
                           "type": "frame",
-                          "id": "dCMrM",
-                          "x": 390,
-                          "y": 180,
-                          "name": "node3",
-                          "width": 150,
-                          "height": 82,
-                          "fill": "#F0FDF4",
+                          "id": "lDun0",
+                          "name": "item2O",
+                          "width": "fill_container",
+                          "height": 92,
+                          "fill": "#FFFFFF",
                           "cornerRadius": 8,
                           "stroke": {
                             "thickness": 1,
-                            "fill": "#BBF7D0"
+                            "fill": "#E2E8F0"
                           },
                           "layout": "vertical",
-                          "gap": 5,
-                          "padding": 14,
+                          "gap": 6,
+                          "padding": 12,
                           "children": [
                             {
                               "type": "text",
-                              "id": "MsZDY",
-                              "name": "n3t",
-                              "fill": "#15803D",
-                              "content": "用户目标",
+                              "id": "aoFox",
+                              "name": "item2TitleO",
+                              "fill": "#0F172A",
+                              "content": "用户希望对 Canvas 与记忆关系保存摘要",
                               "fontFamily": "Inter",
-                              "fontSize": 13,
-                              "fontWeight": "750"
+                              "fontSize": 14,
+                              "fontWeight": "700"
                             },
                             {
                               "type": "text",
-                              "id": "lfEUa",
-                              "name": "n3d",
-                              "fill": "#16A34A",
-                              "content": "目标 · 已固定",
-                              "fontFamily": "Geist Mono",
-                              "fontSize": 10,
+                              "id": "nzWW6",
+                              "name": "item1MetaO",
+                              "fill": "#64748B",
+                              "textGrowth": "fixed-width-height",
+                              "width": 102,
+                              "height": 18,
+                              "content": "事实 · 2026/05/26",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "onrFE",
+                              "name": "item2SrcO",
+                              "fill": "#64748B",
+                              "content": "来源：Canvas Mode 操作记录",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
                               "fontWeight": "normal"
                             }
                           ]
                         },
                         {
-                          "type": "line",
-                          "id": "xZVpd",
-                          "x": 280,
-                          "y": 244,
-                          "name": "edge2",
-                          "width": 110,
-                          "height": -25,
+                          "type": "frame",
+                          "id": "OtziU",
+                          "name": "item3O",
+                          "width": "fill_container",
+                          "height": 92,
+                          "fill": "#FFFFFF",
+                          "cornerRadius": 8,
                           "stroke": {
-                            "align": "center",
-                            "thickness": 2,
-                            "fill": "#93C5FD"
-                          }
+                            "thickness": 1,
+                            "fill": "#E2E8F0"
+                          },
+                          "layout": "vertical",
+                          "gap": 6,
+                          "padding": 12,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "WZCnY",
+                              "name": "item3TitleO",
+                              "fill": "#0F172A",
+                              "content": "用户常用 DeepSeek 作为模型服务商",
+                              "fontFamily": "Inter",
+                              "fontSize": 14,
+                              "fontWeight": "700"
+                            },
+                            {
+                              "type": "text",
+                              "id": "FkFT4",
+                              "name": "item1MetaO",
+                              "fill": "#64748B",
+                              "content": "事实 · 2026/05/26",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "kGoOq",
+                              "name": "item3SrcO",
+                              "fill": "#64748B",
+                              "content": "来源：设置面板连接记录",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "Fzvvr",
+              "x": 972,
+              "y": 0,
+              "name": "Chat Panel",
+              "width": 380,
+              "height": 960,
+              "fill": "#FFFFFF",
+              "stroke": {
+                "thickness": {
+                  "left": 1
+                },
+                "fill": "#E2E8F0"
+              },
+              "layout": "none",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "bEXBC",
+                  "x": 0,
+                  "y": 0,
+                  "name": "Chat Header",
+                  "width": "fill_container(380)",
+                  "height": 54,
+                  "fill": "#FFFFFF",
+                  "stroke": {
+                    "thickness": {
+                      "bottom": 1
+                    },
+                    "fill": "#E2E8F0"
+                  },
+                  "padding": [
+                    0,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "ys07l",
+                      "name": "chatTitle",
+                      "fill": "#0F172A",
+                      "content": "Chat",
+                      "fontFamily": "Geist",
+                      "fontSize": 16,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "ul55P",
+                      "name": "spacer",
+                      "width": "fill_container",
+                      "height": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "TYur5",
+                  "x": 0,
+                  "y": 54,
+                  "name": "Messages Area",
+                  "clip": true,
+                  "width": "fill_container(380)",
+                  "height": 840,
+                  "fill": "#F6F8FB",
+                  "layout": "vertical",
+                  "gap": 12,
+                  "padding": 16,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "XEMiW",
+                      "name": "AI Message",
+                      "width": 280,
+                      "layout": "vertical",
+                      "gap": 4,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "8XgcG",
+                          "name": "aiAvatar",
+                          "gap": 6,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "1bOtf",
+                              "name": "aiAvIcon",
+                              "width": 22,
+                              "height": 22,
+                              "fill": "#2563EB",
+                              "cornerRadius": 6,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "Nb7Pd",
+                                  "name": "aiAvLetter",
+                                  "fill": "#FFFFFF",
+                                  "content": "W",
+                                  "fontFamily": "Geist",
+                                  "fontSize": 11,
+                                  "fontWeight": "800"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "khS7J",
+                              "name": "aiAvName",
+                              "fill": "#0F172A",
+                              "content": "World One",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": "700"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "rVSEx",
+                          "name": "aiBubble",
+                          "width": 280,
+                          "fill": "#FFFFFF",
+                          "cornerRadius": [
+                            2,
+                            12,
+                            12,
+                            12
+                          ],
+                          "stroke": {
+                            "thickness": 1,
+                            "fill": "#E2E8F0"
+                          },
+                          "padding": 12,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "kbPGB",
+                              "name": "aiBubbleText",
+                              "fill": "#334155",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "Here is a summary of your memory list. You have 3 fact memories and 1 pending deletion. Need me to organize them?",
+                              "lineHeight": 1.5,
+                              "fontFamily": "Inter",
+                              "fontSize": 13,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "fZ55V",
+                      "name": "User Message",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 4,
+                      "alignItems": "end",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "eTRfa",
+                          "name": "userBubble",
+                          "width": 250,
+                          "fill": "#1D4ED8",
+                          "cornerRadius": [
+                            12,
+                            2,
+                            12,
+                            12
+                          ],
+                          "padding": 12,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "viQPe",
+                              "name": "userText",
+                              "fill": "#FFFFFF",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "Help me organize the fact category, keep only the top 5 most important ones.",
+                              "lineHeight": 1.5,
+                              "fontFamily": "Inter",
+                              "fontSize": 13,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "skqA4",
+                          "name": "userTime",
+                          "fill": "#94A3B8",
+                          "content": "12:34",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Qaoh8",
+                  "x": 0,
+                  "y": 894,
+                  "name": "Input Area",
+                  "width": "fill_container(380)",
+                  "height": 66,
+                  "fill": "#FFFFFF",
+                  "stroke": {
+                    "thickness": {
+                      "top": 1
+                    },
+                    "fill": "#E2E8F0"
+                  },
+                  "gap": 8,
+                  "padding": [
+                    12,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "ZHOR0",
+                      "name": "inputBox",
+                      "width": "fill_container",
+                      "height": 38,
+                      "fill": "#F8FAFC",
+                      "cornerRadius": 8,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": "#E2E8F0"
+                      },
+                      "padding": [
+                        0,
+                        12
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "611Ug",
+                          "name": "inputPlaceholder",
+                          "fill": "#94A3B8",
+                          "content": "Type a message...",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "zLhFz",
+                      "name": "sendBtn",
+                      "width": 38,
+                      "height": 38,
+                      "fill": "#2563EB",
+                      "cornerRadius": 8,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "A2JZJ",
+                          "name": "sendIcon",
+                          "width": 16,
+                          "height": 16,
+                          "iconFontName": "send",
+                          "iconFontFamily": "lucide",
+                          "fill": "#FFFFFF"
                         }
                       ]
                     }
@@ -6953,41 +7247,6 @@
                       "name": "taskT",
                       "fill": "#94A3B8",
                       "content": "任务",
-                      "fontFamily": "Inter",
-                      "fontSize": 10,
-                      "fontWeight": "650"
-                    }
-                  ]
-                },
-                {
-                  "type": "frame",
-                  "id": "t2wwP",
-                  "name": "memory",
-                  "width": 48,
-                  "height": 54,
-                  "fill": "#FFFFFF00",
-                  "cornerRadius": 8,
-                  "layout": "vertical",
-                  "gap": 3,
-                  "justifyContent": "center",
-                  "alignItems": "center",
-                  "children": [
-                    {
-                      "type": "icon_font",
-                      "id": "VSpiu",
-                      "name": "memIconQ3",
-                      "width": 17,
-                      "height": 17,
-                      "iconFontName": "database",
-                      "iconFontFamily": "lucide",
-                      "fill": "#94A3B8"
-                    },
-                    {
-                      "type": "text",
-                      "id": "HJEa8",
-                      "name": "memLabelQ3",
-                      "fill": "#94A3B8",
-                      "content": "记忆",
                       "fontFamily": "Inter",
                       "fontSize": 10,
                       "fontWeight": "650"
@@ -7241,47 +7500,6 @@
                     },
                     {
                       "type": "frame",
-                      "id": "aIYrB",
-                      "name": "测试连接按钮",
-                      "height": 38,
-                      "fill": "#F8FAFC",
-                      "cornerRadius": 8,
-                      "stroke": {
-                        "thickness": 1,
-                        "fill": "#CBD5E1"
-                      },
-                      "gap": 8,
-                      "padding": [
-                        0,
-                        14
-                      ],
-                      "justifyContent": "center",
-                      "alignItems": "center",
-                      "children": [
-                        {
-                          "type": "icon_font",
-                          "id": "yWx2Z",
-                          "name": "testIconA",
-                          "width": 15,
-                          "height": 15,
-                          "iconFontName": "refresh-cw",
-                          "iconFontFamily": "lucide",
-                          "fill": "#0F172A"
-                        },
-                        {
-                          "type": "text",
-                          "id": "Vfy8U",
-                          "name": "testLabelA",
-                          "fill": "#0F172A",
-                          "content": "测试连接",
-                          "fontFamily": "Inter",
-                          "fontSize": 14,
-                          "fontWeight": "600"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "frame",
                       "id": "Rd8Eo",
                       "name": "save",
                       "height": 38,
@@ -7330,7 +7548,8 @@
                       "type": "frame",
                       "id": "FhbBV",
                       "name": "form",
-                      "width": "fill_container",
+                      "width": 655,
+                      "height": 842,
                       "fill": "#FFFFFF",
                       "cornerRadius": 8,
                       "stroke": {
@@ -7678,7 +7897,7 @@
                       "id": "9d3En",
                       "name": "side",
                       "width": 320,
-                      "height": 310,
+                      "height": 302,
                       "fill": "#FFFFFF",
                       "cornerRadius": 8,
                       "stroke": {
@@ -7688,6 +7907,7 @@
                       "layout": "vertical",
                       "gap": 14,
                       "padding": 18,
+                      "justifyContent": "center",
                       "children": [
                         {
                           "type": "text",
@@ -7790,19 +8010,47 @@
                               "fontFamily": "Inter",
                               "fontSize": 12,
                               "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "Ve0wM",
+                          "name": "测试连接按钮",
+                          "height": 38,
+                          "fill": "#F8FAFC",
+                          "cornerRadius": 8,
+                          "stroke": {
+                            "thickness": 1,
+                            "fill": "#CBD5E1"
+                          },
+                          "gap": 8,
+                          "padding": [
+                            0,
+                            14
+                          ],
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon_font",
+                              "id": "jwEdF",
+                              "name": "testIconA",
+                              "width": 15,
+                              "height": 15,
+                              "iconFontName": "refresh-cw",
+                              "iconFontFamily": "lucide",
+                              "fill": "#0F172A"
                             },
                             {
                               "type": "text",
-                              "id": "SEt60",
-                              "name": "noteA",
-                              "fill": "#2563EB",
-                              "textGrowth": "fixed-width",
-                              "width": "fill_container",
-                              "content": "Note：用于确认 API Key、基础 URL、模型名和网络连通性是否可用。",
-                              "lineHeight": 1.45,
+                              "id": "8mdPj",
+                              "name": "testLabelA",
+                              "fill": "#0F172A",
+                              "content": "测试连接",
                               "fontFamily": "Inter",
-                              "fontSize": 12,
-                              "fontWeight": "normal"
+                              "fontSize": 14,
+                              "fontWeight": "600"
                             }
                           ]
                         }
@@ -8033,41 +8281,6 @@
                       "name": "taskT",
                       "fill": "#94A3B8",
                       "content": "Tasks",
-                      "fontFamily": "Inter",
-                      "fontSize": 10,
-                      "fontWeight": "650"
-                    }
-                  ]
-                },
-                {
-                  "type": "frame",
-                  "id": "JCnQI",
-                  "name": "memory",
-                  "width": 48,
-                  "height": 54,
-                  "fill": "#FFFFFF00",
-                  "cornerRadius": 8,
-                  "layout": "vertical",
-                  "gap": 3,
-                  "justifyContent": "center",
-                  "alignItems": "center",
-                  "children": [
-                    {
-                      "type": "icon_font",
-                      "id": "mL5nM",
-                      "name": "memIconR1",
-                      "width": 17,
-                      "height": 17,
-                      "iconFontName": "database",
-                      "iconFontFamily": "lucide",
-                      "fill": "#94A3B8"
-                    },
-                    {
-                      "type": "text",
-                      "id": "etwgN",
-                      "name": "memLabelR1",
-                      "fill": "#94A3B8",
-                      "content": "记忆",
                       "fontFamily": "Inter",
                       "fontSize": 10,
                       "fontWeight": "650"
@@ -9686,9 +9899,9 @@
     {
       "type": "frame",
       "id": "u4mzr",
-      "x": 1520,
-      "y": 5400,
-      "name": "V2 Page 04 - Memory Manager Widget",
+      "x": 2980,
+      "y": 8327,
+      "name": "V2 Page 06A - Memory App Canvas Derivative",
       "width": 1440,
       "height": 1120,
       "fill": "#F6F8FB",
@@ -9712,7 +9925,7 @@
               "id": "y0VHQ",
               "name": "k",
               "fill": "#2563EB",
-              "content": "PAGE 04",
+              "content": "PAGE 06A",
               "fontFamily": "Inter",
               "fontSize": 12,
               "fontWeight": "750"
@@ -9722,7 +9935,7 @@
               "id": "jZjwC",
               "name": "t",
               "fill": "#0F172A",
-              "content": "Memory 内置页面",
+              "content": "Memory 应用打开",
               "fontFamily": "Geist",
               "fontSize": 30,
               "fontWeight": "700"
@@ -9734,7 +9947,7 @@
               "fill": "#64748B",
               "textGrowth": "fixed-width",
               "width": "fill_container",
-              "content": "Memory 是内置能力，和聊天、事件、任务同级；从最左侧全局导航进入独立页面，用于查看、确认、编辑和删除长期记忆。",
+              "content": "从 Page 07 全部应用选择 Memory 后进入此衍生页；主 widget 在 Canvas 中承载筛选、保留、新增和删除确认。",
               "fontFamily": "Inter",
               "fontSize": 14,
               "fontWeight": "normal"
@@ -9908,41 +10121,6 @@
                 },
                 {
                   "type": "frame",
-                  "id": "31pKZ",
-                  "name": "memoryL",
-                  "width": 48,
-                  "height": 54,
-                  "fill": "#1D4ED8",
-                  "cornerRadius": 8,
-                  "layout": "vertical",
-                  "gap": 3,
-                  "justifyContent": "center",
-                  "alignItems": "center",
-                  "children": [
-                    {
-                      "type": "icon_font",
-                      "id": "8v87n",
-                      "name": "memoryIconL",
-                      "width": 17,
-                      "height": 17,
-                      "iconFontName": "database",
-                      "iconFontFamily": "lucide",
-                      "fill": "#FFFFFF"
-                    },
-                    {
-                      "type": "text",
-                      "id": "HlN9V",
-                      "name": "memoryLabelL",
-                      "fill": "#FFFFFF",
-                      "content": "记忆",
-                      "fontFamily": "Inter",
-                      "fontSize": 10,
-                      "fontWeight": "700"
-                    }
-                  ]
-                },
-                {
-                  "type": "frame",
                   "id": "eha9I",
                   "name": "spacerM",
                   "width": 1,
@@ -9954,7 +10132,7 @@
                   "name": "appsM",
                   "width": 42,
                   "height": 42,
-                  "fill": "#0F172A",
+                  "fill": "#1D4ED8",
                   "cornerRadius": 8,
                   "justifyContent": "center",
                   "alignItems": "center",
@@ -10038,7 +10216,7 @@
                           "id": "5PLfs",
                           "name": "subM",
                           "fill": "#64748B",
-                          "content": "管理 Agent 的长期记忆：确认、编辑、删除、查看来源和作用域。",
+                          "content": "管理 Agent 的长期记忆：筛选、保留、新增和删除；不提供直接编辑。",
                           "fontFamily": "Inter",
                           "fontSize": 14,
                           "fontWeight": "normal"
@@ -10088,12 +10266,13 @@
                     },
                     {
                       "type": "frame",
-                      "id": "vLCnc",
-                      "name": "newBtnM",
+                      "id": "gEXmS",
+                      "name": "新增记忆按钮",
+                      "width": 102,
                       "height": 38,
                       "fill": "#111827",
                       "cornerRadius": 8,
-                      "gap": 8,
+                      "gap": 7,
                       "padding": [
                         0,
                         14
@@ -10101,13 +10280,23 @@
                       "alignItems": "center",
                       "children": [
                         {
+                          "type": "icon_font",
+                          "id": "JNxiC",
+                          "name": "新增图标",
+                          "width": 14,
+                          "height": 14,
+                          "iconFontName": "plus",
+                          "iconFontFamily": "lucide",
+                          "fill": "#FFFFFF"
+                        },
+                        {
                           "type": "text",
-                          "id": "zQw0g",
-                          "name": "newTextM",
+                          "id": "QcFCe",
+                          "name": "新增文字",
                           "fill": "#FFFFFF",
                           "content": "新增记忆",
                           "fontFamily": "Inter",
-                          "fontSize": 14,
+                          "fontSize": 13,
                           "fontWeight": "700"
                         }
                       ]
@@ -10158,82 +10347,6 @@
                           "fontWeight": "normal"
                         }
                       ]
-                    },
-                    {
-                      "type": "frame",
-                      "id": "nvr5c",
-                      "name": "statNeedN",
-                      "width": "fill_container",
-                      "height": 82,
-                      "fill": "#FFFBEB",
-                      "cornerRadius": 10,
-                      "stroke": {
-                        "thickness": 1,
-                        "fill": "#FDE68A"
-                      },
-                      "layout": "vertical",
-                      "gap": 5,
-                      "padding": 14,
-                      "children": [
-                        {
-                          "type": "text",
-                          "id": "yBFnB",
-                          "name": "statNeedNumN",
-                          "fill": "#B45309",
-                          "content": "4",
-                          "fontFamily": "Inter",
-                          "fontSize": 24,
-                          "fontWeight": "800"
-                        },
-                        {
-                          "type": "text",
-                          "id": "VzkFd",
-                          "name": "statNeedLabelN",
-                          "fill": "#92400E",
-                          "content": "待确认",
-                          "fontFamily": "Inter",
-                          "fontSize": 12,
-                          "fontWeight": "normal"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "frame",
-                      "id": "HqMR9",
-                      "name": "statSessionN",
-                      "width": "fill_container",
-                      "height": 82,
-                      "fill": "#EFF6FF",
-                      "cornerRadius": 10,
-                      "stroke": {
-                        "thickness": 1,
-                        "fill": "#BFDBFE"
-                      },
-                      "layout": "vertical",
-                      "gap": 5,
-                      "padding": 14,
-                      "children": [
-                        {
-                          "type": "text",
-                          "id": "0kogc",
-                          "name": "statSessionNumN",
-                          "fill": "#1D4ED8",
-                          "content": "10",
-                          "fontFamily": "Inter",
-                          "fontSize": 24,
-                          "fontWeight": "800"
-                        },
-                        {
-                          "type": "text",
-                          "id": "bUQ1I",
-                          "name": "statSessionLabelN",
-                          "fill": "#2563EB",
-                          "content": "当前会话相关",
-                          "fontFamily": "Inter",
-                          "fontSize": 12,
-                          "fontWeight": "normal"
-                        }
-                      ]
                     }
                   ]
                 },
@@ -10249,7 +10362,7 @@
                       "id": "sdl77",
                       "name": "chipAllN",
                       "height": 32,
-                      "fill": "#111827",
+                      "fill": "#2563eb",
                       "cornerRadius": 8,
                       "padding": [
                         0,
@@ -10370,7 +10483,7 @@
                       "type": "frame",
                       "id": "oY7jv",
                       "name": "记忆列表",
-                      "width": 520,
+                      "width": "fill_container",
                       "height": "fill_container",
                       "fill": "#F8FAFC",
                       "cornerRadius": 10,
@@ -10397,7 +10510,7 @@
                           "id": "yRXnJ",
                           "name": "item1O",
                           "width": "fill_container",
-                          "height": 92,
+                          "height": 112,
                           "fill": "#FFFFFF",
                           "cornerRadius": 8,
                           "stroke": {
@@ -10437,6 +10550,16 @@
                               "fontFamily": "Inter",
                               "fontSize": 12,
                               "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "4Uju1",
+                              "name": "item1Actions",
+                              "fill": "#DC2626",
+                              "content": "操作：保留 · 删除",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": "700"
                             }
                           ]
                         },
@@ -10445,7 +10568,7 @@
                           "id": "z8Ioa",
                           "name": "item2O",
                           "width": "fill_container",
-                          "height": 92,
+                          "height": 112,
                           "fill": "#FFFFFF",
                           "cornerRadius": 8,
                           "stroke": {
@@ -10485,6 +10608,16 @@
                               "fontFamily": "Inter",
                               "fontSize": 12,
                               "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "2slp3",
+                              "name": "item2Actions",
+                              "fill": "#DC2626",
+                              "content": "操作：保留 · 删除",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": "700"
                             }
                           ]
                         },
@@ -10493,7 +10626,7 @@
                           "id": "4Jg6Q",
                           "name": "item3O",
                           "width": "fill_container",
-                          "height": 92,
+                          "height": 112,
                           "fill": "#FFFFFF",
                           "cornerRadius": 8,
                           "stroke": {
@@ -10533,201 +10666,18 @@
                               "fontFamily": "Inter",
                               "fontSize": 12,
                               "fontWeight": "normal"
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "type": "frame",
-                      "id": "0Qi2X",
-                      "name": "记忆详情",
-                      "width": "fill_container",
-                      "height": "fill_container",
-                      "fill": "#FFFFFF",
-                      "cornerRadius": 10,
-                      "stroke": {
-                        "thickness": 1,
-                        "fill": "#E2E8F0"
-                      },
-                      "layout": "vertical",
-                      "gap": 14,
-                      "padding": 18,
-                      "children": [
-                        {
-                          "type": "text",
-                          "id": "nXhmF",
-                          "name": "detailTitleO",
-                          "fill": "#0F172A",
-                          "content": "记忆详情",
-                          "fontFamily": "Inter",
-                          "fontSize": 20,
-                          "fontWeight": "700"
-                        },
-                        {
-                          "type": "text",
-                          "id": "alWLA",
-                          "name": "detailBodyO",
-                          "fill": "#0F172A",
-                          "textGrowth": "fixed-width",
-                          "width": "fill_container",
-                          "content": "当前工作区使用 World One 作为本体 Agent 主机。该记忆帮助 Agent 理解当前产品语境、页面结构、内置能力和用户正在调整的设计方向。",
-                          "lineHeight": 1.5,
-                          "fontFamily": "Inter",
-                          "fontSize": 14,
-                          "fontWeight": "normal"
-                        },
-                        {
-                          "type": "frame",
-                          "id": "FpBUi",
-                          "name": "metaBoxO",
-                          "width": "fill_container",
-                          "fill": "#F8FAFC",
-                          "cornerRadius": 8,
-                          "stroke": {
-                            "thickness": 1,
-                            "fill": "#E2E8F0"
-                          },
-                          "layout": "vertical",
-                          "gap": 8,
-                          "padding": 12,
-                          "children": [
-                            {
-                              "type": "text",
-                              "id": "7hEpO",
-                              "name": "meta1P",
-                              "fill": "#334155",
-                              "content": "作用域：workspace",
-                              "fontFamily": "Inter",
-                              "fontSize": 13,
-                              "fontWeight": "650"
                             },
                             {
                               "type": "text",
-                              "id": "HeK3h",
-                              "name": "meta2P",
-                              "fill": "#334155",
-                              "content": "置信度：0.92",
+                              "id": "OFZyj",
+                              "name": "item3Actions",
+                              "fill": "#DC2626",
+                              "content": "操作：保留 · 删除",
                               "fontFamily": "Inter",
-                              "fontSize": 13,
-                              "fontWeight": "650"
-                            },
-                            {
-                              "type": "text",
-                              "id": "K6mYf",
-                              "name": "meta3P",
-                              "fill": "#334155",
-                              "content": "最近更新：今天 14:32",
-                              "fontFamily": "Inter",
-                              "fontSize": 13,
-                              "fontWeight": "650"
+                              "fontSize": 12,
+                              "fontWeight": "700"
                             }
                           ]
-                        },
-                        {
-                          "type": "frame",
-                          "id": "O4vhL",
-                          "name": "actionsP",
-                          "width": "fill_container",
-                          "gap": 8,
-                          "children": [
-                            {
-                              "type": "frame",
-                              "id": "SjfiL",
-                              "name": "confirmP",
-                              "height": 38,
-                              "fill": "#111827",
-                              "cornerRadius": 8,
-                              "padding": [
-                                0,
-                                14
-                              ],
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "text",
-                                  "id": "T5qCv",
-                                  "name": "confirmTextP",
-                                  "fill": "#FFFFFF",
-                                  "content": "确认保留",
-                                  "fontFamily": "Inter",
-                                  "fontSize": 14,
-                                  "fontWeight": "700"
-                                }
-                              ]
-                            },
-                            {
-                              "type": "frame",
-                              "id": "bCHU9",
-                              "name": "editP",
-                              "height": 38,
-                              "fill": "#FFFFFF",
-                              "cornerRadius": 8,
-                              "stroke": {
-                                "thickness": 1,
-                                "fill": "#CBD5E1"
-                              },
-                              "padding": [
-                                0,
-                                14
-                              ],
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "text",
-                                  "id": "5rdL6",
-                                  "name": "editTextP",
-                                  "fill": "#0F172A",
-                                  "content": "编辑",
-                                  "fontFamily": "Inter",
-                                  "fontSize": 14,
-                                  "fontWeight": "700"
-                                }
-                              ]
-                            },
-                            {
-                              "type": "frame",
-                              "id": "GGGRA",
-                              "name": "deleteP",
-                              "height": 38,
-                              "fill": "#FFFFFF",
-                              "cornerRadius": 8,
-                              "stroke": {
-                                "thickness": 1,
-                                "fill": "#FCA5A5"
-                              },
-                              "padding": [
-                                0,
-                                14
-                              ],
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "text",
-                                  "id": "ou4Kx",
-                                  "name": "deleteTextP",
-                                  "fill": "#DC2626",
-                                  "content": "删除",
-                                  "fontFamily": "Inter",
-                                  "fontSize": 14,
-                                  "fontWeight": "700"
-                                }
-                              ]
-                            }
-                          ]
-                        },
-                        {
-                          "type": "text",
-                          "id": "s0Wh7",
-                          "name": "noteP",
-                          "fill": "#2563EB",
-                          "textGrowth": "fixed-width",
-                          "width": "fill_container",
-                          "content": "Note：这是从最左侧 Memory 按钮进入的独立页面；聊天里可以引用记忆，但不负责承载完整管理功能。",
-                          "lineHeight": 1.45,
-                          "fontFamily": "Inter",
-                          "fontSize": 12,
-                          "fontWeight": "normal"
                         }
                       ]
                     }
@@ -10743,8 +10693,8 @@
       "type": "frame",
       "id": "dmRgJ",
       "x": 1520,
-      "y": 6560,
-      "name": "V2 Page 05 - Events Mode",
+      "y": 5666,
+      "name": "V2 Page 04 - Event Handling",
       "width": 1440,
       "height": 1120,
       "fill": "#F6F8FB",
@@ -10766,7 +10716,7 @@
               "id": "EhoOY",
               "name": "k",
               "fill": "#2563EB",
-              "content": "PAGE 05",
+              "content": "PAGE 04",
               "fontFamily": "Inter",
               "fontSize": 12,
               "fontWeight": "750"
@@ -10776,7 +10726,7 @@
               "id": "1AgQO",
               "name": "t",
               "fill": "#0F172A",
-              "content": "待处理事件",
+              "content": "事件处理",
               "fontFamily": "Geist",
               "fontSize": 30,
               "fontWeight": "700"
@@ -10788,7 +10738,7 @@
               "fill": "#64748B",
               "textGrowth": "fixed-width",
               "width": "fill_container",
-              "content": "Events 对应 /api/world-events 的 pending inbox：当工具缺参数或执行中断时，用户在这里补充信息并继续执行。",
+              "content": "Page 04 事件入口：处理单个 WorldEvent，补齐参数后恢复原 Agent 工具链并返回原对话。",
               "fontFamily": "Inter",
               "fontSize": 14,
               "fontWeight": "normal"
@@ -10961,41 +10911,6 @@
                       "fontWeight": "650"
                     }
                   ]
-                },
-                {
-                  "type": "frame",
-                  "id": "oXkGX",
-                  "name": "memory",
-                  "width": 48,
-                  "height": 54,
-                  "fill": "#FFFFFF00",
-                  "cornerRadius": 8,
-                  "layout": "vertical",
-                  "gap": 3,
-                  "justifyContent": "center",
-                  "alignItems": "center",
-                  "children": [
-                    {
-                      "type": "icon_font",
-                      "id": "ZspUF",
-                      "name": "memIconR2",
-                      "width": 17,
-                      "height": 17,
-                      "iconFontName": "database",
-                      "iconFontFamily": "lucide",
-                      "fill": "#94A3B8"
-                    },
-                    {
-                      "type": "text",
-                      "id": "C7ZeC",
-                      "name": "memLabelR2",
-                      "fill": "#94A3B8",
-                      "content": "记忆",
-                      "fontFamily": "Inter",
-                      "fontSize": 10,
-                      "fontWeight": "650"
-                    }
-                  ]
                 }
               ]
             }
@@ -11019,7 +10934,7 @@
               "y": 24,
               "name": "eTitleAbs1",
               "fill": "#0F172A",
-              "content": "待处理事件",
+              "content": "补参数后继续执行",
               "fontFamily": "Inter",
               "fontSize": 28,
               "fontWeight": "700"
@@ -11033,279 +10948,19 @@
               "fill": "#64748B",
               "textGrowth": "fixed-width",
               "width": 780,
-              "content": "需要用户介入的 WorldEvent：补参数、确认、放弃，完成后回到原会话继续工具链。",
+              "content": "来自 Page 04 的待处理事件入口：用户补齐缺失字段，系统 resume_tool，原工具链继续运行。",
               "fontFamily": "Inter",
               "fontSize": 14,
               "fontWeight": "normal"
             },
             {
               "type": "frame",
-              "id": "W6rAr",
-              "x": 1100,
-              "y": 24,
-              "name": "eBtnBg1",
-              "width": 160,
-              "height": 38,
-              "fill": "#FFFFFF",
-              "cornerRadius": 8,
-              "stroke": {
-                "thickness": 1,
-                "fill": "#CBD5E1"
-              }
-            },
-            {
-              "type": "text",
-              "id": "Ere9k",
-              "x": 1136,
-              "y": 33,
-              "name": "eBtnText1",
-              "fill": "#0F172A",
-              "content": "刷新事件",
-              "fontFamily": "Inter",
-              "fontSize": 13,
-              "fontWeight": "700"
-            },
-            {
-              "type": "frame",
-              "id": "WxoDB",
-              "x": 24,
-              "y": 96,
-              "name": "eStatBg1",
-              "width": 294,
-              "height": 78,
-              "fill": "#EFF6FF",
-              "cornerRadius": 10,
-              "stroke": {
-                "thickness": 1,
-                "fill": "#BFDBFE"
-              }
-            },
-            {
-              "type": "text",
-              "id": "nFhH3",
-              "x": 40,
-              "y": 110,
-              "name": "eStatNum1",
-              "fill": "#1D4ED8",
-              "content": "6",
-              "fontFamily": "Inter",
-              "fontSize": 24,
-              "fontWeight": "800"
-            },
-            {
-              "type": "text",
-              "id": "X70wk",
-              "x": 40,
-              "y": 143,
-              "name": "eStatLab1",
-              "fill": "#2563EB",
-              "content": "待处理事件",
-              "fontFamily": "Inter",
-              "fontSize": 12,
-              "fontWeight": "normal"
-            },
-            {
-              "type": "frame",
-              "id": "wOfVg",
-              "x": 334,
-              "y": 96,
-              "name": "eStatBg2",
-              "width": 294,
-              "height": 78,
-              "fill": "#FFFBEB",
-              "cornerRadius": 10,
-              "stroke": {
-                "thickness": 1,
-                "fill": "#FDE68A"
-              }
-            },
-            {
-              "type": "text",
-              "id": "pdCYQ",
-              "x": 350,
-              "y": 110,
-              "name": "eStatNum2",
-              "fill": "#B45309",
-              "content": "4",
-              "fontFamily": "Inter",
-              "fontSize": 24,
-              "fontWeight": "800"
-            },
-            {
-              "type": "text",
-              "id": "o3p4V",
-              "x": 350,
-              "y": 143,
-              "name": "eStatLab2",
-              "fill": "#92400E",
-              "content": "缺少参数",
-              "fontFamily": "Inter",
-              "fontSize": 12,
-              "fontWeight": "normal"
-            },
-            {
-              "type": "frame",
-              "id": "Ansb8",
-              "x": 644,
-              "y": 96,
-              "name": "eStatBg3",
-              "width": 294,
-              "height": 78,
-              "fill": "#F0FDF4",
-              "cornerRadius": 10,
-              "stroke": {
-                "thickness": 1,
-                "fill": "#BBF7D0"
-              }
-            },
-            {
-              "type": "text",
-              "id": "t5mcM",
-              "x": 660,
-              "y": 110,
-              "name": "eStatNum3",
-              "fill": "#15803D",
-              "content": "12",
-              "fontFamily": "Inter",
-              "fontSize": 24,
-              "fontWeight": "800"
-            },
-            {
-              "type": "text",
-              "id": "WUpVk",
-              "x": 660,
-              "y": 143,
-              "name": "eStatLab3",
-              "fill": "#166534",
-              "content": "本周已解决",
-              "fontFamily": "Inter",
-              "fontSize": 12,
-              "fontWeight": "normal"
-            },
-            {
-              "type": "frame",
-              "id": "KEm8K",
-              "x": 954,
-              "y": 96,
-              "name": "eStatBg4",
-              "width": 294,
-              "height": 78,
-              "fill": "#F8FAFC",
-              "cornerRadius": 10,
-              "stroke": {
-                "thickness": 1,
-                "fill": "#E2E8F0"
-              }
-            },
-            {
-              "type": "text",
-              "id": "1RHj4",
-              "x": 970,
-              "y": 110,
-              "name": "eStatNum4",
-              "fill": "#475569",
-              "content": "2",
-              "fontFamily": "Inter",
-              "fontSize": 24,
-              "fontWeight": "800"
-            },
-            {
-              "type": "text",
-              "id": "QbiQS",
-              "x": 970,
-              "y": 143,
-              "name": "eStatLab4",
-              "fill": "#64748B",
-              "content": "已取消事件",
-              "fontFamily": "Inter",
-              "fontSize": 12,
-              "fontWeight": "normal"
-            },
-            {
-              "type": "frame",
-              "id": "feBiN",
-              "x": 24,
-              "y": 194,
-              "name": "eChipBg1",
-              "width": 64,
-              "height": 32,
-              "fill": "#111827",
-              "cornerRadius": 8
-            },
-            {
-              "type": "text",
-              "id": "kGliK",
-              "x": 36,
-              "y": 201,
-              "name": "eChipT1",
-              "fill": "#FFFFFF",
-              "content": "待处理",
-              "fontFamily": "Inter",
-              "fontSize": 13,
-              "fontWeight": "700"
-            },
-            {
-              "type": "frame",
-              "id": "fspf4",
-              "x": 96,
-              "y": 194,
-              "name": "eChipBg2",
-              "width": 64,
-              "height": 32,
-              "fill": "#FFFFFF",
-              "cornerRadius": 8,
-              "stroke": {
-                "thickness": 1,
-                "fill": "#CBD5E1"
-              }
-            },
-            {
-              "type": "text",
-              "id": "NgbrL",
-              "x": 108,
-              "y": 201,
-              "name": "eChipT2",
-              "fill": "#334155",
-              "content": "缺参数",
-              "fontFamily": "Inter",
-              "fontSize": 13,
-              "fontWeight": "650"
-            },
-            {
-              "type": "frame",
-              "id": "SlO8I",
-              "x": 168,
-              "y": 194,
-              "name": "eChipBg3",
-              "width": 120,
-              "height": 32,
-              "fill": "#FFFFFF",
-              "cornerRadius": 8,
-              "stroke": {
-                "thickness": 1,
-                "fill": "#CBD5E1"
-              }
-            },
-            {
-              "type": "text",
-              "id": "B5YxE",
-              "x": 180,
-              "y": 201,
-              "name": "eChipT3",
-              "fill": "#334155",
-              "content": "来自当前会话",
-              "fontFamily": "Inter",
-              "fontSize": 13,
-              "fontWeight": "650"
-            },
-            {
-              "type": "frame",
               "id": "c0PEW",
               "x": 24,
-              "y": 246,
+              "y": 143,
               "name": "eListBg",
               "width": 520,
-              "height": 678,
+              "height": 805,
               "fill": "#FFFFFF",
               "cornerRadius": 10,
               "stroke": {
@@ -11316,11 +10971,11 @@
             {
               "type": "text",
               "id": "CX8yM",
-              "x": 42,
-              "y": 264,
+              "x": 45,
+              "y": 161,
               "name": "eListTitle",
               "fill": "#0F172A",
-              "content": "待处理事件列表",
+              "content": "挂起事件",
               "fontFamily": "Inter",
               "fontSize": 16,
               "fontWeight": "700"
@@ -11329,10 +10984,10 @@
               "type": "frame",
               "id": "yy0Qo",
               "x": 42,
-              "y": 304,
+              "y": 322,
               "name": "eEventCard1",
               "width": 484,
-              "height": 112,
+              "height": 120,
               "fill": "#EFF6FF",
               "cornerRadius": 8,
               "stroke": {
@@ -11344,10 +10999,10 @@
               "type": "text",
               "id": "fTS7Z",
               "x": 56,
-              "y": 318,
+              "y": 338,
               "name": "eEventT1",
               "fill": "#0F172A",
-              "content": "补充参数后继续执行",
+              "content": "资料检索申请 · 表单待补全",
               "fontFamily": "Inter",
               "fontSize": 14,
               "fontWeight": "750"
@@ -11356,10 +11011,10 @@
               "type": "text",
               "id": "8jT1x",
               "x": 56,
-              "y": 344,
+              "y": 364,
               "name": "eEventM1",
               "fill": "#475569",
-              "content": "工具：搜索资料，状态：等待用户补充输入",
+              "content": "来源：原对话 · submit_research_request",
               "fontFamily": "Inter",
               "fontSize": 12,
               "fontWeight": "normal"
@@ -11368,10 +11023,10 @@
               "type": "text",
               "id": "IFqud",
               "x": 56,
-              "y": 370,
+              "y": 390,
               "name": "eEventNeed1",
-              "fill": "#1D4ED8",
-              "content": "缺少：范围、日期、执行确认",
+              "fill": "$danger",
+              "content": "缺少：检索范围、输出格式、执行确认",
               "fontFamily": "Inter",
               "fontSize": 12,
               "fontWeight": "700"
@@ -11380,10 +11035,10 @@
               "type": "text",
               "id": "fl5eo",
               "x": 56,
-              "y": 394,
+              "y": 414,
               "name": "eEventHint1",
               "fill": "#64748B",
-              "content": "注：提交后会继续原来的工具链",
+              "content": "点击后右侧还原对话并补全表单",
               "fontFamily": "Inter",
               "fontSize": 11,
               "fontWeight": "normal"
@@ -11392,10 +11047,10 @@
               "type": "frame",
               "id": "8sU2x",
               "x": 42,
-              "y": 428,
+              "y": 456,
               "name": "eEventCard2",
               "width": 484,
-              "height": 104,
+              "height": 112,
               "fill": "#FFFFFF",
               "cornerRadius": 8,
               "stroke": {
@@ -11407,10 +11062,10 @@
               "type": "text",
               "id": "rSRnp",
               "x": 56,
-              "y": 442,
+              "y": 472,
               "name": "eEventT2",
               "fill": "#0F172A",
-              "content": "下次外呼需要确认",
+              "content": "外部工具调用确认",
               "fontFamily": "Inter",
               "fontSize": 14,
               "fontWeight": "750"
@@ -11419,10 +11074,10 @@
               "type": "text",
               "id": "7Xq4q",
               "x": 56,
-              "y": 468,
+              "y": 498,
               "name": "eEventM2",
               "fill": "#475569",
-              "content": "参数：原因，状态：等待补充",
+              "content": "来源：自动化执行 · 等待审批原因",
               "fontFamily": "Inter",
               "fontSize": 12,
               "fontWeight": "normal"
@@ -11431,9 +11086,9 @@
               "type": "text",
               "id": "4ivPY",
               "x": 56,
-              "y": 494,
+              "y": 524,
               "name": "eEventNeed2",
-              "fill": "#B45309",
+              "fill": "$danger",
               "content": "缺少：审批原因",
               "fontFamily": "Inter",
               "fontSize": 12,
@@ -11443,10 +11098,10 @@
               "type": "frame",
               "id": "L4FKf",
               "x": 42,
-              "y": 544,
+              "y": 582,
               "name": "eEventCard3",
               "width": 484,
-              "height": 96,
+              "height": 104,
               "fill": "#FFFFFF",
               "cornerRadius": 8,
               "stroke": {
@@ -11458,10 +11113,10 @@
               "type": "text",
               "id": "Y0MzE",
               "x": 56,
-              "y": 558,
+              "y": 598,
               "name": "eEventT3",
               "fill": "#0F172A",
-              "content": "用户确认后继续工具链",
+              "content": "用户确认继续工具链",
               "fontFamily": "Inter",
               "fontSize": 14,
               "fontWeight": "750"
@@ -11470,10 +11125,10 @@
               "type": "text",
               "id": "SnmHU",
               "x": 56,
-              "y": 584,
+              "y": 624,
               "name": "eEventM3",
               "fill": "#475569",
-              "content": "等待确认，状态：待确认",
+              "content": "来源：主对话 · 状态：待确认",
               "fontFamily": "Inter",
               "fontSize": 12,
               "fontWeight": "normal"
@@ -11482,115 +11137,172 @@
               "type": "frame",
               "id": "A2ONf",
               "x": 560,
-              "y": 246,
+              "y": 143,
               "name": "eDetailBg",
               "width": 704,
-              "height": 678,
-              "fill": "#FFFFFF",
+              "height": 805,
+              "fill": "#FFFFFF00",
               "cornerRadius": 10,
               "stroke": {
                 "thickness": 1,
                 "fill": "#E2E8F0"
-              }
+              },
+              "layout": "none"
             },
             {
               "type": "text",
               "id": "GQLr2",
               "x": 580,
-              "y": 266,
+              "y": 163,
               "name": "eDetailTitle",
               "fill": "#0F172A",
-              "content": "事件详情：补参数后继续执行",
+              "content": "表单补全",
               "fontFamily": "Inter",
               "fontSize": 20,
               "fontWeight": "700"
             },
             {
+              "type": "group",
+              "id": "OkAH8",
+              "x": 1134,
+              "y": 898,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "TW3tc",
+                  "x": 0,
+                  "y": 0,
+                  "name": "eAction3",
+                  "width": 110,
+                  "height": 38,
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 8,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#FCA5A5"
+                  }
+                },
+                {
+                  "type": "text",
+                  "id": "09EpY",
+                  "x": 24,
+                  "y": 9,
+                  "name": "eActionT3",
+                  "fill": "#DC2626",
+                  "content": "取消事件",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "group",
+              "id": "Ur6LK",
+              "x": 42,
+              "y": 268,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "feBiN",
+                  "x": 0,
+                  "y": 0,
+                  "name": "eChipBg1",
+                  "width": 64,
+                  "height": 32,
+                  "fill": "#2563eb",
+                  "cornerRadius": 8
+                },
+                {
+                  "type": "text",
+                  "id": "kGliK",
+                  "x": 18,
+                  "y": 6,
+                  "name": "eChipT1",
+                  "fill": "#FFFFFF",
+                  "content": "全部",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "frame",
+                  "id": "fspf4",
+                  "x": 72,
+                  "y": 0,
+                  "name": "eChipBg2",
+                  "width": 72,
+                  "height": 32,
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 8,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#CBD5E1"
+                  }
+                },
+                {
+                  "type": "frame",
+                  "id": "SlO8I",
+                  "x": 152,
+                  "y": 0,
+                  "name": "eChipBg3",
+                  "width": 82,
+                  "height": 32,
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 8,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#CBD5E1"
+                  }
+                },
+                {
+                  "type": "text",
+                  "id": "NgbrL",
+                  "x": 84,
+                  "y": 7,
+                  "name": "eChipT2",
+                  "fill": "#334155",
+                  "content": "需补参",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "650"
+                },
+                {
+                  "type": "text",
+                  "id": "B5YxE",
+                  "x": 156,
+                  "y": 7,
+                  "name": "eChipT3",
+                  "fill": "#334155",
+                  "content": "待确认",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "650"
+                }
+              ]
+            },
+            {
               "type": "text",
-              "id": "Yqxwn",
+              "id": "kiUmc",
               "x": 580,
-              "y": 306,
-              "name": "eDetailDesc",
-              "fill": "#475569",
+              "y": 196,
+              "name": "p4vSub",
+              "fill": "#64748B",
               "textGrowth": "fixed-width",
               "width": 640,
-              "content": "这个事件不是普通日志，而是一次被暂停的工具/决策链。用户提交参数后，后端会调用 resume_tool 并继续原来的执行。",
-              "lineHeight": 1.45,
+              "content": "Agent 根据缺失信息生成局部表单，用户填写后恢复原流程。",
               "fontFamily": "Inter",
-              "fontSize": 14,
+              "fontSize": 13,
               "fontWeight": "normal"
             },
             {
               "type": "frame",
-              "id": "1iqqS",
-              "x": 580,
-              "y": 372,
-              "name": "eInfoBg",
-              "width": 664,
-              "height": 116,
-              "fill": "#F8FAFC",
-              "cornerRadius": 8,
-              "stroke": {
-                "thickness": 1,
-                "fill": "#E2E8F0"
-              }
-            },
-            {
-              "type": "text",
-              "id": "gAJKa",
-              "x": 596,
-              "y": 390,
-              "name": "eInfo1",
-              "fill": "#334155",
-              "content": "事件类型：参数缺失",
-              "fontFamily": "Inter",
-              "fontSize": 13,
-              "fontWeight": "650"
-            },
-            {
-              "type": "text",
-              "id": "UKX0n",
-              "x": 596,
-              "y": 416,
-              "name": "eInfo2",
-              "fill": "#334155",
-              "content": "状态：待处理",
-              "fontFamily": "Inter",
-              "fontSize": 13,
-              "fontWeight": "650"
-            },
-            {
-              "type": "text",
-              "id": "eKB21",
-              "x": 596,
-              "y": 442,
-              "name": "eInfo3",
-              "fill": "#334155",
-              "content": "恢复动作：继续工具调用",
-              "fontFamily": "Inter",
-              "fontSize": 13,
-              "fontWeight": "650"
-            },
-            {
-              "type": "text",
-              "id": "pNHRH",
-              "x": 596,
-              "y": 468,
-              "name": "eInfo4",
-              "fill": "#334155",
-              "content": "所属会话：当前对话",
-              "fontFamily": "Inter",
-              "fontSize": 13,
-              "fontWeight": "650"
-            },
-            {
-              "type": "frame",
-              "id": "5sCh7",
-              "x": 580,
-              "y": 508,
-              "name": "eFlowBg",
-              "width": 664,
-              "height": 96,
+              "id": "1oaEY",
+              "x": 760,
+              "y": 232,
+              "name": "p4vUserBg",
+              "width": 464,
+              "height": 64,
               "fill": "#EFF6FF",
               "cornerRadius": 8,
               "stroke": {
@@ -11600,26 +11312,44 @@
             },
             {
               "type": "text",
-              "id": "SHSS5",
-              "x": 596,
-              "y": 524,
-              "name": "eFlowTitle",
-              "fill": "#1D4ED8",
-              "content": "恢复逻辑",
+              "id": "Rqebv",
+              "x": 782,
+              "y": 252,
+              "name": "p4vUserText",
+              "fill": "#1E3A8A",
+              "textGrowth": "fixed-width",
+              "width": 420,
+              "content": "用户：我需要提交资料检索申请，请帮我继续完成。",
+              "lineHeight": 1.4,
               "fontFamily": "Inter",
               "fontSize": 13,
-              "fontWeight": "800"
+              "fontWeight": "650"
+            },
+            {
+              "type": "frame",
+              "id": "gEq1p",
+              "x": 580,
+              "y": 310,
+              "name": "p4vAgentBg",
+              "width": 528,
+              "height": 74,
+              "fill": "#F8FAFC",
+              "cornerRadius": 8,
+              "stroke": {
+                "thickness": 1,
+                "fill": "#E2E8F0"
+              }
             },
             {
               "type": "text",
-              "id": "3cIuz",
-              "x": 596,
-              "y": 552,
-              "name": "eFlowBody",
-              "fill": "#1D4ED8",
+              "id": "FM4GT",
+              "x": 602,
+              "y": 330,
+              "name": "p4vAgentText",
+              "fill": "#334155",
               "textGrowth": "fixed-width",
-              "width": 620,
-              "content": "工具运行中断时创建事件，用户补齐参数后提交，系统把结果写回原会话并继续 Agent 执行。",
+              "width": 484,
+              "content": "Agent：我读取了前面的对话，已识别出部分申请信息，但还有字段缺失。",
               "lineHeight": 1.45,
               "fontFamily": "Inter",
               "fontSize": 13,
@@ -11627,34 +11357,194 @@
             },
             {
               "type": "frame",
-              "id": "Uh9pG",
+              "id": "ARPf9",
               "x": 580,
-              "y": 628,
-              "name": "eAction1",
-              "width": 116,
+              "y": 402,
+              "name": "p4vToolBg",
+              "width": 640,
+              "height": 78,
+              "fill": "#FFF7ED",
+              "cornerRadius": 8,
+              "stroke": {
+                "thickness": 1,
+                "fill": "#FDBA74"
+              }
+            },
+            {
+              "type": "text",
+              "id": "VCcPh",
+              "x": 602,
+              "y": 420,
+              "name": "p4vToolTitle",
+              "fill": "#9A3412",
+              "content": "流程暂停 · submit_research_request",
+              "fontFamily": "Inter",
+              "fontSize": 13,
+              "fontWeight": "750"
+            },
+            {
+              "type": "text",
+              "id": "PjMLK",
+              "x": 602,
+              "y": 448,
+              "name": "p4vToolMeta",
+              "fill": "#C2410C",
+              "textGrowth": "fixed-width",
+              "width": 580,
+              "content": "缺失字段：检索范围、截止日期、输出格式、执行确认",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "650"
+            },
+            {
+              "type": "frame",
+              "id": "e6jnG",
+              "x": 580,
+              "y": 498,
+              "name": "p4vPauseBg",
+              "width": 640,
+              "height": 82,
+              "fill": "#F8FAFC",
+              "cornerRadius": 8,
+              "stroke": {
+                "thickness": 1,
+                "fill": "#E2E8F0"
+              }
+            },
+            {
+              "type": "text",
+              "id": "fudbK",
+              "x": 602,
+              "y": 516,
+              "name": "p4vPauseTitle",
+              "fill": "#0F172A",
+              "content": "Agent：我已生成需要你补全的表单",
+              "fontFamily": "Inter",
+              "fontSize": 13,
+              "fontWeight": "750"
+            },
+            {
+              "type": "text",
+              "id": "3N1Vg",
+              "x": 602,
+              "y": 542,
+              "name": "p4vPauseText",
+              "fill": "#475569",
+              "textGrowth": "fixed-width",
+              "width": 580,
+              "content": "已知信息会自动带入；只需要补齐空白或待确认字段，提交后继续原来的表单提交流程。",
+              "lineHeight": 1.45,
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "f2f3W",
+              "x": 580,
+              "y": 596,
+              "name": "p4vFormBg",
+              "width": 640,
+              "height": 236,
+              "fill": "#FFFFFF",
+              "cornerRadius": 8,
+              "stroke": {
+                "thickness": 1,
+                "fill": "#BFDBFE"
+              }
+            },
+            {
+              "type": "text",
+              "id": "PtepW",
+              "x": 602,
+              "y": 616,
+              "name": "p4vFormTitle",
+              "fill": "#0F172A",
+              "content": "资料检索申请 Widget",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "750"
+            },
+            {
+              "type": "text",
+              "id": "uEXvk",
+              "x": 602,
+              "y": 642,
+              "name": "p4vField1",
+              "fill": "#64748B",
+              "textGrowth": "fixed-width",
+              "width": 520,
+              "content": "Agent 已带入部分字段，空白项需要用户直接填写。",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "Eq75k",
+              "x": 602,
+              "y": 674,
+              "name": "p4vField2",
+              "fill": "#64748B",
+              "content": "申请事项",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "wZNre",
+              "x": 902,
+              "y": 674,
+              "name": "p4vField3",
+              "fill": "#DC2626",
+              "content": "检索范围 *",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "1y4dY",
+              "x": 966,
+              "y": 898,
+              "name": "p4vButtonBg",
+              "width": 156,
               "height": 38,
-              "fill": "#111827",
+              "fill": "#2563EB",
               "cornerRadius": 8
             },
             {
               "type": "text",
-              "id": "i45SK",
-              "x": 596,
-              "y": 637,
-              "name": "eActionT1",
+              "id": "WRSQp",
+              "x": 1016,
+              "y": 907,
+              "name": "p4vButtonText",
               "fill": "#FFFFFF",
-              "content": "补充并继续",
+              "content": "发送消息",
               "fontFamily": "Inter",
               "fontSize": 14,
               "fontWeight": "700"
             },
             {
+              "type": "text",
+              "id": "3ssOl",
+              "x": 45,
+              "y": 188,
+              "name": "pg4Count",
+              "fill": "#64748B",
+              "content": "6 个待处理 · 3 个需要补参",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            },
+            {
               "type": "frame",
-              "id": "HYxzl",
-              "x": 708,
-              "y": 628,
-              "name": "eAction2",
-              "width": 78,
+              "id": "Mf8tc",
+              "x": 42,
+              "y": 218,
+              "name": "pg4SearchBg",
+              "width": 484,
               "height": 38,
               "fill": "#FFFFFF",
               "cornerRadius": 8,
@@ -11665,24 +11555,121 @@
             },
             {
               "type": "text",
-              "id": "kHn9z",
-              "x": 722,
-              "y": 637,
-              "name": "eActionT2",
-              "fill": "#0F172A",
-              "content": "重新命名",
+              "id": "gVf0L",
+              "x": 56,
+              "y": 228,
+              "name": "pg4SearchText",
+              "fill": "#94A3B8",
+              "content": "搜索对话 / 工具 / 缺失参数",
               "fontFamily": "Inter",
-              "fontSize": 14,
+              "fontSize": 12,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "NEwmy",
+              "x": 56,
+              "y": 704,
+              "name": "pg4Hint",
+              "fill": "#64748B",
+              "textGrowth": "fixed-width",
+              "width": 430,
+              "content": "选择任一挂起事件，右侧会切换到对应的对话记录。",
+              "lineHeight": 1.45,
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "fSiId",
+              "x": 580,
+              "y": 844,
+              "name": "p4ComposerBg",
+              "width": 640,
+              "height": 42,
+              "fill": "#FFFFFF",
+              "cornerRadius": 8,
+              "stroke": {
+                "thickness": 1,
+                "fill": "#CBD5E1"
+              }
+            },
+            {
+              "type": "text",
+              "id": "9uIVT",
+              "x": 602,
+              "y": 856,
+              "name": "p4ComposerText",
+              "fill": "#94A3B8",
+              "textGrowth": "fixed-width",
+              "width": 560,
+              "content": "填写 Widget 后，点击发送消息继续原对话。",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "z63q8",
+              "x": 602,
+              "y": 738,
+              "name": "formField4",
+              "fill": "#64748B",
+              "content": "截止时间",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "iGnHq",
+              "x": 1050,
+              "y": 738,
+              "name": "formField5",
+              "fill": "#DC2626",
+              "content": "执行确认 *",
+              "fontFamily": "Inter",
+              "fontSize": 11,
               "fontWeight": "700"
             },
             {
               "type": "frame",
-              "id": "TW3tc",
-              "x": 798,
-              "y": 628,
-              "name": "eAction3",
-              "width": 92,
-              "height": 38,
+              "id": "dJXsP",
+              "x": 602,
+              "y": 692,
+              "name": "fieldKnownBg",
+              "width": 280,
+              "height": 34,
+              "fill": "#F8FAFC",
+              "cornerRadius": 8,
+              "stroke": {
+                "thickness": 1,
+                "fill": "#E2E8F0"
+              }
+            },
+            {
+              "type": "text",
+              "id": "5PoYW",
+              "x": 616,
+              "y": 701,
+              "name": "fieldKnownText",
+              "fill": "#334155",
+              "textGrowth": "fixed-width",
+              "width": 248,
+              "content": "memory-one 近 7 天资料摘要",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "650"
+            },
+            {
+              "type": "frame",
+              "id": "inrKm",
+              "x": 902,
+              "y": 692,
+              "name": "scopeInputBg",
+              "width": 278,
+              "height": 34,
               "fill": "#FFFFFF",
               "cornerRadius": 8,
               "stroke": {
@@ -11692,30 +11679,181 @@
             },
             {
               "type": "text",
-              "id": "09EpY",
-              "x": 812,
-              "y": 637,
-              "name": "eActionT3",
-              "fill": "#DC2626",
-              "content": "取消事件",
-              "fontFamily": "Inter",
-              "fontSize": 14,
-              "fontWeight": "700"
-            },
-            {
-              "type": "text",
-              "id": "pzagg",
-              "x": 580,
-              "y": 692,
-              "name": "eNote",
-              "fill": "#2563EB",
+              "id": "6YUT1",
+              "x": 916,
+              "y": 701,
+              "name": "scopeInputText",
+              "fill": "#94A3B8",
               "textGrowth": "fixed-width",
-              "width": 620,
-              "content": "Note：事件不是新会话，而是当前对话里的待处理输入口。",
-              "lineHeight": 1.45,
+              "width": 240,
+              "content": "当前 workspace / 对话上下文",
               "fontFamily": "Inter",
               "fontSize": 12,
               "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "zGlkH",
+              "x": 602,
+              "y": 756,
+              "name": "dateInputBg",
+              "width": 188,
+              "height": 34,
+              "fill": "#F8FAFC",
+              "cornerRadius": 8,
+              "stroke": {
+                "thickness": 1,
+                "fill": "#E2E8F0"
+              }
+            },
+            {
+              "type": "text",
+              "id": "CFmfQ",
+              "x": 616,
+              "y": 765,
+              "name": "dateInputText",
+              "fill": "#334155",
+              "textGrowth": "fixed-width",
+              "width": 150,
+              "content": "今天 18:00",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "650"
+            },
+            {
+              "type": "text",
+              "id": "nkYik",
+              "x": 812,
+              "y": 738,
+              "name": "formatLabel",
+              "fill": "#1D4ED8",
+              "content": "输出格式 *",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "ogWia",
+              "x": 812,
+              "y": 756,
+              "name": "formatA",
+              "width": 60,
+              "height": 34,
+              "fill": "#2563EB",
+              "cornerRadius": 8
+            },
+            {
+              "type": "text",
+              "id": "PEGDJ",
+              "x": 830,
+              "y": 765,
+              "name": "formatAText",
+              "fill": "#FFFFFF",
+              "textGrowth": "fixed-width",
+              "width": 520,
+              "content": "摘要",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "vGGoT",
+              "x": 878,
+              "y": 756,
+              "name": "formatB",
+              "width": 60,
+              "height": 34,
+              "fill": "#FFFFFF",
+              "cornerRadius": 8,
+              "stroke": {
+                "thickness": 1,
+                "fill": "#CBD5E1"
+              }
+            },
+            {
+              "type": "text",
+              "id": "qVCLh",
+              "x": 896,
+              "y": 765,
+              "name": "formatBText",
+              "fill": "#334155",
+              "textGrowth": "fixed-width",
+              "width": 520,
+              "content": "表格",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "650"
+            },
+            {
+              "type": "frame",
+              "id": "RLnr2",
+              "x": 944,
+              "y": 756,
+              "name": "formatC",
+              "width": 86,
+              "height": 34,
+              "fill": "#FFFFFF",
+              "cornerRadius": 8,
+              "stroke": {
+                "thickness": 1,
+                "fill": "#CBD5E1"
+              }
+            },
+            {
+              "type": "text",
+              "id": "9cKE1",
+              "x": 962,
+              "y": 765,
+              "name": "formatCText",
+              "fill": "#334155",
+              "textGrowth": "fixed-width",
+              "width": 520,
+              "content": "引用链接",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "650"
+            },
+            {
+              "type": "frame",
+              "id": "mYedy",
+              "x": 1050,
+              "y": 756,
+              "name": "confirmBg",
+              "width": 130,
+              "height": 34,
+              "fill": "#FEF2F2",
+              "cornerRadius": 8,
+              "stroke": {
+                "thickness": 1,
+                "fill": "#FCA5A5"
+              }
+            },
+            {
+              "type": "text",
+              "id": "F5jsB",
+              "x": 1072,
+              "y": 765,
+              "name": "confirmText",
+              "fill": "#DC2626",
+              "textGrowth": "fixed-width",
+              "width": 520,
+              "content": "允许调用工具",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "wEk8o",
+              "x": 1060,
+              "y": 766,
+              "name": "confirmDot",
+              "width": 10,
+              "height": 10,
+              "fill": "#DC2626",
+              "cornerRadius": 10
             }
           ]
         }
@@ -11725,8 +11863,8 @@
       "type": "frame",
       "id": "qBApN",
       "x": 1520,
-      "y": 7720,
-      "name": "V2 Page 06 - Tasks Mode",
+      "y": 6956,
+      "name": "V2 Page 05 - Task Handling",
       "width": 1440,
       "height": 1120,
       "fill": "#F6F8FB",
@@ -11748,7 +11886,7 @@
               "id": "q1zLE",
               "name": "k",
               "fill": "#2563EB",
-              "content": "PAGE 06",
+              "content": "PAGE 05",
               "fontFamily": "Inter",
               "fontSize": 12,
               "fontWeight": "750"
@@ -11758,7 +11896,7 @@
               "id": "roFaA",
               "name": "t",
               "fill": "#0F172A",
-              "content": "Agent 工作任务",
+              "content": "任务处理",
               "fontFamily": "Geist",
               "fontSize": 30,
               "fontWeight": "700"
@@ -11770,7 +11908,7 @@
               "fill": "#64748B",
               "textGrowth": "fixed-width",
               "width": "fill_container",
-              "content": "Tasks 对应 UiSession(type=task)：由 Agent 或工具结果派生，拥有独立 agentSession、消息历史和可恢复的 Canvas 状态。",
+              "content": "Page 05 任务入口：处理单个 UiSession(type=task)，查看独立上下文并恢复绑定 Canvas。",
               "fontFamily": "Inter",
               "fontSize": 14,
               "fontWeight": "normal"
@@ -11943,41 +12081,6 @@
                       "fontWeight": "700"
                     }
                   ]
-                },
-                {
-                  "type": "frame",
-                  "id": "0RqoB",
-                  "name": "memory",
-                  "width": 48,
-                  "height": 54,
-                  "fill": "#FFFFFF00",
-                  "cornerRadius": 8,
-                  "layout": "vertical",
-                  "gap": 3,
-                  "justifyContent": "center",
-                  "alignItems": "center",
-                  "children": [
-                    {
-                      "type": "icon_font",
-                      "id": "1gNo7",
-                      "name": "memIconR3",
-                      "width": 17,
-                      "height": 17,
-                      "iconFontName": "database",
-                      "iconFontFamily": "lucide",
-                      "fill": "#94A3B8"
-                    },
-                    {
-                      "type": "text",
-                      "id": "23W31",
-                      "name": "memLabelR3",
-                      "fill": "#94A3B8",
-                      "content": "记忆",
-                      "fontFamily": "Inter",
-                      "fontSize": 10,
-                      "fontWeight": "650"
-                    }
-                  ]
                 }
               ]
             }
@@ -12001,7 +12104,7 @@
               "y": 24,
               "name": "tTitleAbs1",
               "fill": "#0F172A",
-              "content": "Agent 工作任务",
+              "content": "任务工作台",
               "fontFamily": "Inter",
               "fontSize": 28,
               "fontWeight": "700"
@@ -12015,240 +12118,19 @@
               "fill": "#64748B",
               "textGrowth": "fixed-width",
               "width": 780,
-              "content": "任务由 Agent 触发，不手动新建；每个任务都是可切换、可归档的独立执行上下文。",
+              "content": "从 Page 05 的任务会话入口进入：查看独立上下文、执行进度、Canvas 状态，并决定继续、恢复画布或作废。",
               "fontFamily": "Inter",
               "fontSize": 14,
               "fontWeight": "normal"
             },
             {
               "type": "frame",
-              "id": "SzgCs",
-              "x": 1130,
-              "y": 24,
-              "name": "tBadgeBg1",
-              "width": 118,
-              "height": 36,
-              "fill": "#EFF6FF",
-              "cornerRadius": 8,
-              "stroke": {
-                "thickness": 1,
-                "fill": "#BFDBFE"
-              }
-            },
-            {
-              "type": "text",
-              "id": "oNzUH",
-              "x": 1144,
-              "y": 32,
-              "name": "tBadgeText1",
-              "fill": "#1D4ED8",
-              "content": "AI 生成任务",
-              "fontFamily": "Inter",
-              "fontSize": 13,
-              "fontWeight": "700"
-            },
-            {
-              "type": "frame",
-              "id": "Pem3P",
-              "x": 24,
-              "y": 96,
-              "name": "tStatBg1",
-              "width": 397,
-              "height": 78,
-              "fill": "#EFF6FF",
-              "cornerRadius": 10,
-              "stroke": {
-                "thickness": 1,
-                "fill": "#BFDBFE"
-              }
-            },
-            {
-              "type": "text",
-              "id": "6h8kN",
-              "x": 40,
-              "y": 110,
-              "name": "tStatNum1",
-              "fill": "#1D4ED8",
-              "content": "3",
-              "fontFamily": "Inter",
-              "fontSize": 24,
-              "fontWeight": "800"
-            },
-            {
-              "type": "text",
-              "id": "2EroJ",
-              "x": 40,
-              "y": 143,
-              "name": "tStatLab1",
-              "fill": "#2563EB",
-              "content": "进行中任务",
-              "fontFamily": "Inter",
-              "fontSize": 12,
-              "fontWeight": "normal"
-            },
-            {
-              "type": "frame",
-              "id": "hnZ1j",
-              "x": 445,
-              "y": 96,
-              "name": "tStatBg2",
-              "width": 397,
-              "height": 78,
-              "fill": "#F0FDF4",
-              "cornerRadius": 10,
-              "stroke": {
-                "thickness": 1,
-                "fill": "#BBF7D0"
-              }
-            },
-            {
-              "type": "text",
-              "id": "agJvO",
-              "x": 461,
-              "y": 110,
-              "name": "tStatNum2",
-              "fill": "#15803D",
-              "content": "8",
-              "fontFamily": "Inter",
-              "fontSize": 24,
-              "fontWeight": "800"
-            },
-            {
-              "type": "text",
-              "id": "SpljE",
-              "x": 461,
-              "y": 143,
-              "name": "tStatLab2",
-              "fill": "#166534",
-              "content": "已完成任务",
-              "fontFamily": "Inter",
-              "fontSize": 12,
-              "fontWeight": "normal"
-            },
-            {
-              "type": "frame",
-              "id": "SmI9S",
-              "x": 866,
-              "y": 96,
-              "name": "tStatBg3",
-              "width": 397,
-              "height": 78,
-              "fill": "#F8FAFC",
-              "cornerRadius": 10,
-              "stroke": {
-                "thickness": 1,
-                "fill": "#E2E8F0"
-              }
-            },
-            {
-              "type": "text",
-              "id": "wvR4L",
-              "x": 882,
-              "y": 110,
-              "name": "tStatNum3",
-              "fill": "#475569",
-              "content": "5",
-              "fontFamily": "Inter",
-              "fontSize": 24,
-              "fontWeight": "800"
-            },
-            {
-              "type": "text",
-              "id": "8W6ND",
-              "x": 882,
-              "y": 143,
-              "name": "tStatLab3",
-              "fill": "#64748B",
-              "content": "归档 / 作废",
-              "fontFamily": "Inter",
-              "fontSize": 12,
-              "fontWeight": "normal"
-            },
-            {
-              "type": "frame",
-              "id": "Zmo2w",
-              "x": 24,
-              "y": 194,
-              "name": "tChipBg1",
-              "width": 64,
-              "height": 32,
-              "fill": "#111827",
-              "cornerRadius": 8
-            },
-            {
-              "type": "text",
-              "id": "kZ7js",
-              "x": 36,
-              "y": 201,
-              "name": "tChipT1",
-              "fill": "#FFFFFF",
-              "content": "进行中",
-              "fontFamily": "Inter",
-              "fontSize": 13,
-              "fontWeight": "700"
-            },
-            {
-              "type": "frame",
-              "id": "BlmSb",
-              "x": 96,
-              "y": 194,
-              "name": "tChipBg2",
-              "width": 88,
-              "height": 32,
-              "fill": "#FFFFFF",
-              "cornerRadius": 8,
-              "stroke": {
-                "thickness": 1,
-                "fill": "#CBD5E1"
-              }
-            },
-            {
-              "type": "text",
-              "id": "Fx2xS",
-              "x": 108,
-              "y": 201,
-              "name": "tChipT2",
-              "fill": "#334155",
-              "content": "带 Canvas",
-              "fontFamily": "Inter",
-              "fontSize": 13,
-              "fontWeight": "650"
-            },
-            {
-              "type": "frame",
-              "id": "wxqOi",
-              "x": 192,
-              "y": 194,
-              "name": "tChipBg3",
-              "width": 64,
-              "height": 32,
-              "fill": "#FFFFFF",
-              "cornerRadius": 8,
-              "stroke": {
-                "thickness": 1,
-                "fill": "#CBD5E1"
-              }
-            },
-            {
-              "type": "text",
-              "id": "VL0K6",
-              "x": 204,
-              "y": 201,
-              "name": "tChipT3",
-              "fill": "#334155",
-              "content": "已完成",
-              "fontFamily": "Inter",
-              "fontSize": 13,
-              "fontWeight": "650"
-            },
-            {
-              "type": "frame",
               "id": "K3Hoy",
               "x": 24,
-              "y": 246,
+              "y": 143,
               "name": "tListBg",
               "width": 560,
-              "height": 678,
+              "height": 781,
               "fill": "#FFFFFF",
               "cornerRadius": 10,
               "stroke": {
@@ -12260,10 +12142,10 @@
               "type": "text",
               "id": "JLWfh",
               "x": 42,
-              "y": 264,
+              "y": 161,
               "name": "tListTitle",
               "fill": "#0F172A",
-              "content": "任务会话列表",
+              "content": "挂起任务",
               "fontFamily": "Inter",
               "fontSize": 16,
               "fontWeight": "700"
@@ -12272,10 +12154,10 @@
               "type": "frame",
               "id": "k9Pff",
               "x": 42,
-              "y": 304,
+              "y": 322,
               "name": "tTaskCard1",
               "width": 524,
-              "height": 116,
+              "height": 120,
               "fill": "#EFF6FF",
               "cornerRadius": 8,
               "stroke": {
@@ -12287,10 +12169,10 @@
               "type": "text",
               "id": "ng1ar",
               "x": 56,
-              "y": 318,
+              "y": 338,
               "name": "tTaskT1",
               "fill": "#0F172A",
-              "content": "检索本地资料",
+              "content": "资料检索任务 · 进行中",
               "fontFamily": "Inter",
               "fontSize": 14,
               "fontWeight": "750"
@@ -12299,10 +12181,10 @@
               "type": "text",
               "id": "wwr34",
               "x": 56,
-              "y": 344,
+              "y": 364,
               "name": "tTaskM1",
               "fill": "#475569",
-              "content": "类型：任务，来源：Agent 派生会话",
+              "content": "来源：Agent 派生线程 · 45%",
               "fontFamily": "Inter",
               "fontSize": 12,
               "fontWeight": "normal"
@@ -12311,10 +12193,10 @@
               "type": "text",
               "id": "RgFaX",
               "x": 56,
-              "y": 370,
+              "y": 390,
               "name": "tTaskC1",
               "fill": "#1D4ED8",
-              "content": "画布：实体关系图，已绑定当前会话",
+              "content": "画布：实体关系图已绑定 · 点击继续",
               "fontFamily": "Inter",
               "fontSize": 12,
               "fontWeight": "700"
@@ -12323,7 +12205,7 @@
               "type": "frame",
               "id": "E90PI",
               "x": 56,
-              "y": 398,
+              "y": 416,
               "name": "tBarBg",
               "width": 484,
               "height": 8,
@@ -12334,7 +12216,7 @@
               "type": "frame",
               "id": "DvmLv",
               "x": 56,
-              "y": 398,
+              "y": 416,
               "name": "tBarFill",
               "width": 220,
               "height": 8,
@@ -12345,10 +12227,10 @@
               "type": "frame",
               "id": "Dj2wD",
               "x": 42,
-              "y": 432,
+              "y": 456,
               "name": "tTaskCard2",
               "width": 524,
-              "height": 104,
+              "height": 112,
               "fill": "#FFFFFF",
               "cornerRadius": 8,
               "stroke": {
@@ -12360,10 +12242,10 @@
               "type": "text",
               "id": "pEH98",
               "x": 56,
-              "y": 446,
+              "y": 472,
               "name": "tTaskT2",
               "fill": "#0F172A",
-              "content": "打开 Memory 内置页面",
+              "content": "Memory 应用确认",
               "fontFamily": "Inter",
               "fontSize": 14,
               "fontWeight": "750"
@@ -12372,10 +12254,10 @@
               "type": "text",
               "id": "DbnzY",
               "x": 56,
-              "y": 472,
+              "y": 498,
               "name": "tTaskM2",
               "fill": "#475569",
-              "content": "子会话：a9c，状态：等待用户确认",
+              "content": "来源：主对话询问可用应用",
               "fontFamily": "Inter",
               "fontSize": 12,
               "fontWeight": "normal"
@@ -12384,10 +12266,10 @@
               "type": "text",
               "id": "wTlQH",
               "x": 56,
-              "y": 498,
+              "y": 524,
               "name": "tTaskC2",
               "fill": "#1D4ED8",
-              "content": "来源：主对话询问可用应用",
+              "content": "等待确认：保留 / 删除 / 继续筛选",
               "fontFamily": "Inter",
               "fontSize": 12,
               "fontWeight": "700"
@@ -12396,10 +12278,10 @@
               "type": "frame",
               "id": "9PH3p",
               "x": 42,
-              "y": 548,
+              "y": 582,
               "name": "tTaskCard3",
               "width": 524,
-              "height": 96,
+              "height": 104,
               "fill": "#F0FDF4",
               "cornerRadius": 8,
               "stroke": {
@@ -12411,10 +12293,10 @@
               "type": "text",
               "id": "qu3nx",
               "x": 56,
-              "y": 562,
+              "y": 598,
               "name": "tTaskT3",
               "fill": "#166534",
-              "content": "记录审计",
+              "content": "记录审计 · 已完成",
               "fontFamily": "Inter",
               "fontSize": 14,
               "fontWeight": "750"
@@ -12423,10 +12305,10 @@
               "type": "text",
               "id": "kIHRS",
               "x": 56,
-              "y": 588,
+              "y": 624,
               "name": "tTaskM3",
               "fill": "#15803D",
-              "content": "已完成，同步到事件与消息流",
+              "content": "已同步到事件流，可查看归档",
               "fontFamily": "Inter",
               "fontSize": 12,
               "fontWeight": "normal"
@@ -12435,115 +12317,163 @@
               "type": "frame",
               "id": "Kv3xG",
               "x": 600,
-              "y": 246,
+              "y": 143,
               "name": "tDetailBg",
               "width": 664,
-              "height": 678,
-              "fill": "#FFFFFF",
+              "height": 781,
+              "fill": "#FFFFFF00",
               "cornerRadius": 10,
               "stroke": {
                 "thickness": 1,
                 "fill": "#E2E8F0"
-              }
+              },
+              "layout": "none"
             },
             {
               "type": "text",
               "id": "Gxf40",
               "x": 620,
-              "y": 266,
+              "y": 163,
               "name": "tDetailTitle",
               "fill": "#0F172A",
-              "content": "任务详情：独立 Agent 工作线程",
+              "content": "挂起任务对话记录",
               "fontFamily": "Inter",
               "fontSize": 20,
               "fontWeight": "700"
             },
             {
+              "type": "group",
+              "id": "kqi8w",
+              "x": 42,
+              "y": 268,
+              "children": [
+                {
+                  "type": "group",
+                  "id": "tCjZl",
+                  "x": 0,
+                  "y": 0,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "Zmo2w",
+                      "x": 0,
+                      "y": 0,
+                      "name": "tChipBg1",
+                      "width": 64,
+                      "height": 32,
+                      "fill": "#2563eb",
+                      "cornerRadius": 8
+                    },
+                    {
+                      "type": "text",
+                      "id": "kZ7js",
+                      "x": 18,
+                      "y": 6,
+                      "name": "tChipT1",
+                      "fill": "#FFFFFF",
+                      "content": "全部",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "700"
+                    }
+                  ]
+                },
+                {
+                  "type": "group",
+                  "id": "DSByP",
+                  "x": 71,
+                  "y": 0,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "BlmSb",
+                      "x": 0,
+                      "y": 0,
+                      "name": "tChipBg2",
+                      "width": 78,
+                      "height": 32,
+                      "fill": "#FFFFFF",
+                      "cornerRadius": 8,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": "#CBD5E1"
+                      },
+                      "justifyContent": "center",
+                      "alignItems": "center"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Fx2xS",
+                      "x": 16,
+                      "y": 7,
+                      "name": "tChipT2",
+                      "fill": "#334155",
+                      "content": "进行中",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "650"
+                    }
+                  ]
+                },
+                {
+                  "type": "group",
+                  "id": "Hp5AU",
+                  "x": 156,
+                  "y": 0,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "wxqOi",
+                      "x": 0,
+                      "y": 0,
+                      "name": "tChipBg3",
+                      "width": 78,
+                      "height": 32,
+                      "fill": "#FFFFFF",
+                      "cornerRadius": 8,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": "#CBD5E1"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "id": "VL0K6",
+                      "x": 16,
+                      "y": 7,
+                      "name": "tChipT3",
+                      "fill": "#334155",
+                      "content": "已完成",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "650"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
               "type": "text",
-              "id": "oH4hW",
+              "id": "l5VE4",
               "x": 620,
-              "y": 306,
-              "name": "tDetailDesc",
-              "fill": "#475569",
+              "y": 196,
+              "name": "p5vSub",
+              "fill": "#64748B",
               "textGrowth": "fixed-width",
               "width": 604,
-              "content": "Task 保存一段 Agent 工作的完整上下文：独立 agentSessionId、自己的消息历史、状态，以及可恢复的 Canvas widget。",
-              "lineHeight": 1.45,
+              "content": "任务线程上下文 · 从挂起点继续",
               "fontFamily": "Inter",
-              "fontSize": 14,
+              "fontSize": 13,
               "fontWeight": "normal"
             },
             {
               "type": "frame",
-              "id": "Jixry",
-              "x": 620,
-              "y": 372,
-              "name": "tInfoBg",
-              "width": 624,
-              "height": 112,
-              "fill": "#F8FAFC",
-              "cornerRadius": 8,
-              "stroke": {
-                "thickness": 1,
-                "fill": "#E2E8F0"
-              }
-            },
-            {
-              "type": "text",
-              "id": "FSEZr",
-              "x": 636,
-              "y": 390,
-              "name": "tInfo1",
-              "fill": "#334155",
-              "content": "会话类型：任务",
-              "fontFamily": "Inter",
-              "fontSize": 13,
-              "fontWeight": "650"
-            },
-            {
-              "type": "text",
-              "id": "NW41v",
-              "x": 636,
-              "y": 416,
-              "name": "tInfo2",
-              "fill": "#334155",
-              "content": "状态：进行中",
-              "fontFamily": "Inter",
-              "fontSize": 13,
-              "fontWeight": "650"
-            },
-            {
-              "type": "text",
-              "id": "Z7UtS",
-              "x": 636,
-              "y": 442,
-              "name": "tInfo3",
-              "fill": "#334155",
-              "content": "画布类型：实体关系图",
-              "fontFamily": "Inter",
-              "fontSize": 13,
-              "fontWeight": "650"
-            },
-            {
-              "type": "text",
-              "id": "gbCZ5",
-              "x": 636,
-              "y": 468,
-              "name": "tInfo4",
-              "fill": "#334155",
-              "content": "画布会话：当前任务绑定",
-              "fontFamily": "Inter",
-              "fontSize": 13,
-              "fontWeight": "650"
-            },
-            {
-              "type": "frame",
-              "id": "O8Tmf",
-              "x": 620,
-              "y": 504,
-              "name": "tFlowBg",
-              "width": 624,
-              "height": 102,
+              "id": "cXDOc",
+              "x": 780,
+              "y": 232,
+              "name": "p5vUserBg",
+              "width": 424,
+              "height": 72,
               "fill": "#EFF6FF",
               "cornerRadius": 8,
               "stroke": {
@@ -12553,26 +12483,44 @@
             },
             {
               "type": "text",
-              "id": "TiXQM",
-              "x": 636,
-              "y": 520,
-              "name": "tFlowTitle",
-              "fill": "#1D4ED8",
-              "content": "任务来源",
+              "id": "psiVP",
+              "x": 802,
+              "y": 250,
+              "name": "p5vUserText",
+              "fill": "#1E3A8A",
+              "textGrowth": "fixed-width",
+              "width": 382,
+              "content": "用户：打开 Memory，找出和本次研究相关的记忆，必要时删除过期内容。",
+              "lineHeight": 1.4,
               "fontFamily": "Inter",
               "fontSize": 13,
-              "fontWeight": "800"
+              "fontWeight": "650"
+            },
+            {
+              "type": "frame",
+              "id": "q1Euf",
+              "x": 620,
+              "y": 322,
+              "name": "p5vAgentBg",
+              "width": 520,
+              "height": 82,
+              "fill": "#F8FAFC",
+              "cornerRadius": 8,
+              "stroke": {
+                "thickness": 1,
+                "fill": "#E2E8F0"
+              }
             },
             {
               "type": "text",
-              "id": "Jc9Um",
-              "x": 636,
-              "y": 548,
-              "name": "tFlowBody",
-              "fill": "#1D4ED8",
+              "id": "LermJ",
+              "x": 642,
+              "y": 341,
+              "name": "p5vAgentText",
+              "fill": "#334155",
               "textGrowth": "fixed-width",
-              "width": 580,
-              "content": "Agent 发现可拆分工作时创建任务会话；任务有独立上下文，可进入、完成、作废或恢复画布。",
+              "width": 476,
+              "content": "Agent：我已派生一个任务线程，并绑定 memory-manager Canvas。现在任务暂停，等待你进入线程继续确认。",
               "lineHeight": 1.45,
               "fontFamily": "Inter",
               "fontSize": 13,
@@ -12580,34 +12528,148 @@
             },
             {
               "type": "frame",
-              "id": "mgiAz",
+              "id": "3deOJ",
               "x": 620,
-              "y": 630,
-              "name": "tAction1",
-              "width": 88,
-              "height": 38,
-              "fill": "#111827",
-              "cornerRadius": 8
+              "y": 422,
+              "name": "p5vProgressBg",
+              "width": 604,
+              "height": 78,
+              "fill": "#F0FDF4",
+              "cornerRadius": 8,
+              "stroke": {
+                "thickness": 1,
+                "fill": "#BBF7D0"
+              }
             },
             {
               "type": "text",
-              "id": "n5gBL",
-              "x": 636,
-              "y": 639,
-              "name": "tActionT1",
-              "fill": "#FFFFFF",
-              "content": "进入任务",
+              "id": "U8yGU",
+              "x": 642,
+              "y": 440,
+              "name": "p5vProgressTitle",
+              "fill": "#166534",
+              "content": "已完成步骤",
               "fontFamily": "Inter",
-              "fontSize": 14,
-              "fontWeight": "700"
+              "fontSize": 13,
+              "fontWeight": "750"
+            },
+            {
+              "type": "text",
+              "id": "z4YGO",
+              "x": 642,
+              "y": 466,
+              "name": "p5vProgressText",
+              "fill": "#15803D",
+              "textGrowth": "fixed-width",
+              "width": 550,
+              "content": "筛选 18 条相关记忆 · 标记 4 条疑似过期 · Canvas 已准备恢复",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "650"
             },
             {
               "type": "frame",
-              "id": "ugP2M",
-              "x": 720,
-              "y": 630,
-              "name": "tAction2",
-              "width": 92,
+              "id": "tRWve",
+              "x": 620,
+              "y": 520,
+              "name": "p5vPauseBg",
+              "width": 604,
+              "height": 86,
+              "fill": "#FFF7ED",
+              "cornerRadius": 8,
+              "stroke": {
+                "thickness": 1,
+                "fill": "#FDBA74"
+              }
+            },
+            {
+              "type": "text",
+              "id": "I8f7E",
+              "x": 642,
+              "y": 538,
+              "name": "p5vPauseTitle",
+              "fill": "#9A3412",
+              "content": "挂起点",
+              "fontFamily": "Inter",
+              "fontSize": 13,
+              "fontWeight": "750"
+            },
+            {
+              "type": "text",
+              "id": "FB8Br",
+              "x": 642,
+              "y": 564,
+              "name": "p5vPauseText",
+              "fill": "#9A3412",
+              "textGrowth": "fixed-width",
+              "width": 552,
+              "content": "等待用户进入任务线程：确认保留、删除或继续筛选。进入后会带回完整对话记录和 Canvas 状态。",
+              "lineHeight": 1.45,
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "Q91nJ",
+              "x": 620,
+              "y": 626,
+              "name": "p5vCanvasBg",
+              "width": 604,
+              "height": 106,
+              "fill": "#FFFFFF",
+              "cornerRadius": 8,
+              "stroke": {
+                "thickness": 1,
+                "fill": "#E2E8F0"
+              }
+            },
+            {
+              "type": "text",
+              "id": "4ZEFR",
+              "x": 642,
+              "y": 646,
+              "name": "p5vCanvasTitle",
+              "fill": "#0F172A",
+              "content": "可恢复 Canvas",
+              "fontFamily": "Inter",
+              "fontSize": 13,
+              "fontWeight": "750"
+            },
+            {
+              "type": "text",
+              "id": "H8oE3",
+              "x": 642,
+              "y": 674,
+              "name": "p5vCanvasText",
+              "fill": "#334155",
+              "textGrowth": "fixed-width",
+              "width": 552,
+              "content": "widgetType=memory-manager · canvasSessionId 已绑定 · 继续后回到该任务的独立上下文。",
+              "lineHeight": 1.45,
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "650"
+            },
+            {
+              "type": "text",
+              "id": "kAhBt",
+              "x": 42,
+              "y": 188,
+              "name": "pg5Count",
+              "fill": "#64748B",
+              "content": "3 个进行中 · 1 个等待确认",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "jKh7J",
+              "x": 42,
+              "y": 218,
+              "name": "pg5SearchBg",
+              "width": 524,
               "height": 38,
               "fill": "#FFFFFF",
               "cornerRadius": 8,
@@ -12618,57 +12680,61 @@
             },
             {
               "type": "text",
-              "id": "rEZ2V",
-              "x": 734,
-              "y": 639,
-              "name": "tActionT2",
-              "fill": "#0F172A",
-              "content": "标记完成",
+              "id": "I9bRb",
+              "x": 56,
+              "y": 228,
+              "name": "pg5SearchText",
+              "fill": "#94A3B8",
+              "content": "搜索任务 / 应用 / Canvas",
               "fontFamily": "Inter",
-              "fontSize": 14,
-              "fontWeight": "700"
-            },
-            {
-              "type": "frame",
-              "id": "yIAum",
-              "x": 824,
-              "y": 630,
-              "name": "tAction3",
-              "width": 64,
-              "height": 38,
-              "fill": "#FFFFFF",
-              "cornerRadius": 8,
-              "stroke": {
-                "thickness": 1,
-                "fill": "#FCA5A5"
-              }
+              "fontSize": 12,
+              "fontWeight": "normal"
             },
             {
               "type": "text",
-              "id": "TMfYO",
-              "x": 838,
-              "y": 639,
-              "name": "tActionT3",
-              "fill": "#DC2626",
-              "content": "作废",
-              "fontFamily": "Inter",
-              "fontSize": 14,
-              "fontWeight": "700"
-            },
-            {
-              "type": "text",
-              "id": "hJojf",
-              "x": 620,
-              "y": 694,
-              "name": "tNote",
-              "fill": "#2563EB",
+              "id": "CGa8O",
+              "x": 56,
+              "y": 704,
+              "name": "pg5Hint",
+              "fill": "#64748B",
               "textGrowth": "fixed-width",
-              "width": 604,
-              "content": "Note：任务不是手动待办，而是 Agent 从对话或工具结果派生出的独立工作线程。",
+              "width": 470,
+              "content": "选择挂起任务后，右侧展示该任务线程的完整恢复上下文。",
               "lineHeight": 1.45,
               "fontFamily": "Inter",
               "fontSize": 12,
               "fontWeight": "normal"
+            },
+            {
+              "type": "group",
+              "id": "Eo2Ow",
+              "x": 1092,
+              "y": 870,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "TRuea",
+                  "x": 0,
+                  "y": 0,
+                  "name": "p5vContinueBg",
+                  "width": 132,
+                  "height": 38,
+                  "fill": "#2563EB",
+                  "cornerRadius": 8
+                },
+                {
+                  "type": "text",
+                  "id": "2Mfo5",
+                  "x": 24,
+                  "y": 9,
+                  "name": "p5vContinueText",
+                  "fill": "#FFFFFF",
+                  "content": "进入对话继续",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "700"
+                }
+              ]
             }
           ]
         }
@@ -12737,9 +12803,9 @@
     {
       "type": "frame",
       "id": "2VPRe",
-      "x": 1520,
-      "y": 8880,
-      "name": "V2 Page 07 - All Apps",
+      "x": 1500,
+      "y": 8327,
+      "name": "V2 Page 06 - All Apps",
       "width": 1440,
       "height": 1120,
       "fill": "#F6F8FB",
@@ -12764,7 +12830,7 @@
               "id": "ezhMB",
               "name": "eyebrowB",
               "fill": "#2563EB",
-              "content": "PAGE 07",
+              "content": "PAGE 06",
               "fontFamily": "Inter",
               "fontSize": 12,
               "fontWeight": "700"
@@ -12784,7 +12850,7 @@
               "id": "zZPEk",
               "name": "descB",
               "fill": "#64748B",
-              "content": "从全局应用入口打开，集中查看可用应用、连接状态和推荐操作。",
+              "content": "从全局应用入口进入；07 聚合可打开的应用模块，Memory 作为 07A 衍生页在 Canvas 中展开。",
               "fontFamily": "Inter",
               "fontSize": 14,
               "fontWeight": "normal"
@@ -12826,7 +12892,7 @@
                   "name": "logoB",
                   "width": 38,
                   "height": 38,
-                  "fill": "#F8FAFC",
+                  "fill": "#2563eb",
                   "cornerRadius": 10,
                   "justifyContent": "center",
                   "alignItems": "center",
@@ -12835,7 +12901,7 @@
                       "type": "text",
                       "id": "ICVBd",
                       "name": "logoTextB",
-                      "fill": "#0F172A",
+                      "fill": "$surface",
                       "content": "W",
                       "fontFamily": "Inter",
                       "fontSize": 18,
@@ -12958,41 +13024,6 @@
                 },
                 {
                   "type": "frame",
-                  "id": "chkJe",
-                  "name": "memory",
-                  "width": 48,
-                  "height": 54,
-                  "fill": "#020617",
-                  "cornerRadius": 8,
-                  "layout": "vertical",
-                  "gap": 3,
-                  "justifyContent": "center",
-                  "alignItems": "center",
-                  "children": [
-                    {
-                      "type": "icon_font",
-                      "id": "3HmPP",
-                      "name": "memIconQ4",
-                      "width": 17,
-                      "height": 17,
-                      "iconFontName": "database",
-                      "iconFontFamily": "lucide",
-                      "fill": "#CBD5E1"
-                    },
-                    {
-                      "type": "text",
-                      "id": "USBkk",
-                      "name": "memLabelQ4",
-                      "fill": "#94A3B8",
-                      "content": "记忆",
-                      "fontFamily": "Inter",
-                      "fontSize": 10,
-                      "fontWeight": "600"
-                    }
-                  ]
-                },
-                {
-                  "type": "frame",
                   "id": "2PDX1",
                   "name": "spacerB",
                   "width": 1,
@@ -13088,7 +13119,7 @@
                           "id": "hCpeC",
                           "name": "subC",
                           "fill": "#64748B",
-                          "content": "管理 Agent 可调用的应用，查看启用状态、权限和最近活动。",
+                          "content": "管理可打开的应用与系统入口；点击卡片后进入 07A / 07B / 07C 衍生页。",
                           "fontFamily": "Inter",
                           "fontSize": 14,
                           "fontWeight": "normal"
@@ -13150,7 +13181,7 @@
                       "id": "e6QPz",
                       "name": "allChipC",
                       "height": 32,
-                      "fill": "#111827",
+                      "fill": "#2563eb",
                       "cornerRadius": 8,
                       "padding": [
                         0,
@@ -13195,36 +13226,6 @@
                           "name": "enabledTextC",
                           "fill": "#334155",
                           "content": "已启用",
-                          "fontFamily": "Inter",
-                          "fontSize": 13,
-                          "fontWeight": "600"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "frame",
-                      "id": "Kry4d",
-                      "name": "recommendedChipC",
-                      "height": 32,
-                      "fill": "#F8FAFC",
-                      "cornerRadius": 8,
-                      "stroke": {
-                        "thickness": 1,
-                        "fill": "#CBD5E1"
-                      },
-                      "padding": [
-                        0,
-                        12
-                      ],
-                      "justifyContent": "center",
-                      "alignItems": "center",
-                      "children": [
-                        {
-                          "type": "text",
-                          "id": "gOIed",
-                          "name": "recommendedTextC",
-                          "fill": "#334155",
-                          "content": "推荐",
                           "fontFamily": "Inter",
                           "fontSize": 13,
                           "fontWeight": "600"
@@ -13296,7 +13297,7 @@
                                       "id": "VQvBG",
                                       "name": "memTitleC",
                                       "fill": "#0F172A",
-                                      "content": "Memory（内置）",
+                                      "content": "Memory",
                                       "fontFamily": "Inter",
                                       "fontSize": 17,
                                       "fontWeight": "700"
@@ -13310,7 +13311,7 @@
                                   "fill": "#475569",
                                   "textGrowth": "fixed-width",
                                   "width": "fill_container",
-                                  "content": "内置长期记忆管理能力，固定在最左侧全局导航中；不作为普通应用弹窗出现。",
+                                  "content": "memory-one 注册应用；从 Page 07 全部应用选择后，在 Canvas 中打开 memory-manager 主模块。",
                                   "lineHeight": 1.45,
                                   "fontFamily": "Inter",
                                   "fontSize": 13,
@@ -13321,7 +13322,7 @@
                                   "id": "E3LZZ",
                                   "name": "memStatusC",
                                   "fill": "#2563EB",
-                                  "content": "固定入口 · 左侧导航直接访问",
+                                  "content": "进入 07A · Memory 应用模块",
                                   "fontFamily": "Inter",
                                   "fontSize": 12,
                                   "fontWeight": "600"
@@ -13438,7 +13439,7 @@
                                       "name": "canvasIconD",
                                       "width": 20,
                                       "height": 20,
-                                      "iconFontName": "layout-dashboard",
+                                      "iconFontName": "calendar-clock",
                                       "iconFontFamily": "lucide",
                                       "fill": "#2563EB"
                                     },
@@ -13447,7 +13448,7 @@
                                       "id": "XhbHl",
                                       "name": "canvasTitleD",
                                       "fill": "#0F172A",
-                                      "content": "画布视图",
+                                      "content": "待处理事件",
                                       "fontFamily": "Inter",
                                       "fontSize": 17,
                                       "fontWeight": "700"
@@ -13461,7 +13462,7 @@
                                   "fill": "#475569",
                                   "textGrowth": "fixed-width",
                                   "width": "fill_container",
-                                  "content": "把对话输出转为可编辑的结构化画布，和 Page 02 的 Canvas Mode 对应。",
+                                  "content": "事件不是独立应用，而是 Agent 工具链中断后的待处理入口；从 Page 04 进入后补参数并恢复原会话。",
                                   "lineHeight": 1.45,
                                   "fontFamily": "Inter",
                                   "fontSize": 13,
@@ -13472,7 +13473,7 @@
                                   "id": "8x4tZ",
                                   "name": "canvasStatusD",
                                   "fill": "#2563EB",
-                                  "content": "推荐 · 可从对话回答直接打开",
+                                  "content": "进入 04 · 补参数 / 取消",
                                   "fontFamily": "Inter",
                                   "fontSize": 12,
                                   "fontWeight": "600"
@@ -13509,16 +13510,16 @@
                                       "name": "toolsIconD",
                                       "width": 20,
                                       "height": 20,
-                                      "iconFontName": "wrench",
+                                      "iconFontName": "list-todo",
                                       "iconFontFamily": "lucide",
-                                      "fill": "#D97706"
+                                      "fill": "#2563EB"
                                     },
                                     {
                                       "type": "text",
                                       "id": "ixGrM",
                                       "name": "toolsTitleD",
                                       "fill": "#0F172A",
-                                      "content": "系统工具",
+                                      "content": "任务会话",
                                       "fontFamily": "Inter",
                                       "fontSize": 17,
                                       "fontWeight": "700"
@@ -13532,7 +13533,7 @@
                                   "fill": "#475569",
                                   "textGrowth": "fixed-width",
                                   "width": "fill_container",
-                                  "content": "展示 Agent 正在调用的命令、检索、网络请求和执行结果。",
+                                  "content": "任务由 Agent 派生，不手动新建；从 Page 06 进入后查看独立上下文、恢复 Canvas、完成或作废。",
                                   "lineHeight": 1.45,
                                   "fontFamily": "Inter",
                                   "fontSize": 13,
@@ -13542,8 +13543,8 @@
                                   "type": "text",
                                   "id": "51rfq",
                                   "name": "toolsStatusD",
-                                  "fill": "#B45309",
-                                  "content": "受控启用 · 需要用户确认高风险操作",
+                                  "fill": "#2563EB",
+                                  "content": "进入 06 · 独立工作线程",
                                   "fontFamily": "Inter",
                                   "fontSize": 12,
                                   "fontWeight": "600"
@@ -13551,240 +13552,6 @@
                               ]
                             }
                           ]
-                        },
-                        {
-                          "type": "frame",
-                          "id": "wP00D",
-                          "name": "noteRowD",
-                          "width": "fill_container",
-                          "fill": "#EFF6FF",
-                          "cornerRadius": 10,
-                          "stroke": {
-                            "thickness": 1,
-                            "fill": "#BFDBFE"
-                          },
-                          "layout": "vertical",
-                          "gap": 6,
-                          "padding": 14,
-                          "children": [
-                            {
-                              "type": "text",
-                              "id": "os38Z",
-                              "name": "noteTitleD",
-                              "fill": "#1D4ED8",
-                              "content": "Note：应用入口和聊天 Widget 的关系",
-                              "fontFamily": "Inter",
-                              "fontSize": 13,
-                              "fontWeight": "700"
-                            },
-                            {
-                              "type": "text",
-                              "id": "oMZFC",
-                              "name": "noteBodyD",
-                              "fill": "#2563EB",
-                              "textGrowth": "fixed-width",
-                              "width": "fill_container",
-                              "content": "这里是完整应用清单；当用户在聊天里询问“有哪些应用”时，Agent 会在同一个回答气泡内展示可选应用。",
-                              "lineHeight": 1.45,
-                              "fontFamily": "Inter",
-                              "fontSize": 13,
-                              "fontWeight": "normal"
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "type": "frame",
-                      "id": "qqMzx",
-                      "name": "应用详情侧栏",
-                      "width": 330,
-                      "height": "fill_container",
-                      "fill": "#F8FAFC",
-                      "cornerRadius": 12,
-                      "stroke": {
-                        "thickness": 1,
-                        "fill": "#E2E8F0"
-                      },
-                      "layout": "vertical",
-                      "gap": 14,
-                      "padding": 18,
-                      "children": [
-                        {
-                          "type": "text",
-                          "id": "pFPs0",
-                          "name": "sideTitleE",
-                          "fill": "#64748B",
-                          "content": "当前选择",
-                          "fontFamily": "Inter",
-                          "fontSize": 14,
-                          "fontWeight": "700"
-                        },
-                        {
-                          "type": "text",
-                          "id": "rdmp5",
-                          "name": "appNameE",
-                          "fill": "#0F172A",
-                          "content": "Memory（内置）",
-                          "fontFamily": "Inter",
-                          "fontSize": 24,
-                          "fontWeight": "700"
-                        },
-                        {
-                          "type": "text",
-                          "id": "yhI1j",
-                          "name": "appDescE",
-                          "fill": "#475569",
-                          "textGrowth": "fixed-width",
-                          "width": "fill_container",
-                          "content": "Memory 是平台内置功能，用于查看和维护 Agent 的长期记忆。它固定在最左侧导航中，区别于普通可选应用。",
-                          "lineHeight": 1.5,
-                          "fontFamily": "Inter",
-                          "fontSize": 13,
-                          "fontWeight": "normal"
-                        },
-                        {
-                          "type": "frame",
-                          "id": "ylBNP",
-                          "name": "statusBoxE",
-                          "width": "fill_container",
-                          "fill": "#FFFFFF",
-                          "cornerRadius": 10,
-                          "stroke": {
-                            "thickness": 1,
-                            "fill": "#E2E8F0"
-                          },
-                          "layout": "vertical",
-                          "gap": 8,
-                          "padding": 14,
-                          "children": [
-                            {
-                              "type": "text",
-                              "id": "ToIGI",
-                              "name": "statusTitleE",
-                              "fill": "#0F172A",
-                              "content": "状态",
-                              "fontFamily": "Inter",
-                              "fontSize": 13,
-                              "fontWeight": "700"
-                            },
-                            {
-                              "type": "text",
-                              "id": "mzl6H",
-                              "name": "statusLineE",
-                              "fill": "#16A34A",
-                              "textGrowth": "fixed-width",
-                              "width": "fill_container",
-                              "content": "固定启用 · 左侧全局导航入口",
-                              "lineHeight": 1.45,
-                              "fontFamily": "Inter",
-                              "fontSize": 12,
-                              "fontWeight": "normal"
-                            }
-                          ]
-                        },
-                        {
-                          "type": "frame",
-                          "id": "FQCQS",
-                          "name": "activityBoxE",
-                          "width": "fill_container",
-                          "fill": "#FFFFFF",
-                          "cornerRadius": 10,
-                          "stroke": {
-                            "thickness": 1,
-                            "fill": "#E2E8F0"
-                          },
-                          "layout": "vertical",
-                          "gap": 8,
-                          "padding": 14,
-                          "children": [
-                            {
-                              "type": "text",
-                              "id": "E0E2E",
-                              "name": "activityTitleE",
-                              "fill": "#0F172A",
-                              "content": "最近活动",
-                              "fontFamily": "Inter",
-                              "fontSize": 13,
-                              "fontWeight": "700"
-                            },
-                            {
-                              "type": "text",
-                              "id": "bXN0a",
-                              "name": "activityLineE",
-                              "fill": "#475569",
-                              "textGrowth": "fixed-width",
-                              "width": "fill_container",
-                              "content": "4 分钟前在“市场分析会话”中打开，并更新 2 条项目记忆。",
-                              "lineHeight": 1.45,
-                              "fontFamily": "Inter",
-                              "fontSize": 12,
-                              "fontWeight": "normal"
-                            }
-                          ]
-                        },
-                        {
-                          "type": "frame",
-                          "id": "hyitL",
-                          "name": "openBtnE",
-                          "width": "fill_container",
-                          "height": 40,
-                          "fill": "#111827",
-                          "cornerRadius": 8,
-                          "justifyContent": "center",
-                          "alignItems": "center",
-                          "children": [
-                            {
-                              "type": "text",
-                              "id": "VaV2f",
-                              "name": "openTextE",
-                              "fill": "#FFFFFF",
-                              "content": "打开应用",
-                              "fontFamily": "Inter",
-                              "fontSize": 14,
-                              "fontWeight": "700"
-                            }
-                          ]
-                        },
-                        {
-                          "type": "frame",
-                          "id": "zM92i",
-                          "name": "configBtnE",
-                          "width": "fill_container",
-                          "height": 40,
-                          "fill": "#FFFFFF",
-                          "cornerRadius": 8,
-                          "stroke": {
-                            "thickness": 1,
-                            "fill": "#CBD5E1"
-                          },
-                          "justifyContent": "center",
-                          "alignItems": "center",
-                          "children": [
-                            {
-                              "type": "text",
-                              "id": "BnxsZ",
-                              "name": "configTextE",
-                              "fill": "#0F172A",
-                              "content": "配置权限",
-                              "fontFamily": "Inter",
-                              "fontSize": 14,
-                              "fontWeight": "700"
-                            }
-                          ]
-                        },
-                        {
-                          "type": "text",
-                          "id": "5sGwa",
-                          "name": "noteSideE",
-                          "fill": "#2563EB",
-                          "textGrowth": "fixed-width",
-                          "width": "fill_container",
-                          "content": "Note：侧栏解释点击某个应用后用户会看到的详细状态和主要操作。",
-                          "lineHeight": 1.45,
-                          "fontFamily": "Inter",
-                          "fontSize": 12,
-                          "fontWeight": "normal"
                         }
                       ]
                     }
