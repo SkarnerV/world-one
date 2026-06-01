@@ -21,3 +21,8 @@
 # Runtime service logs (local only)
 logs/*.log
 logs/*.pid
+
+# ── Local test / browser artifacts ───────────────────────────────────────────
+.playwright-mcp/
+page-*.png
+nul
