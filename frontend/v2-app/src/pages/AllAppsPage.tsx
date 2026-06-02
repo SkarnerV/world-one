@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Search } from "lucide-react";
 import { api } from "@/lib/api";
 import { APPS } from "@/mocks/seed";
@@ -14,6 +15,7 @@ export default function AllAppsPage() {
   const [apps, setApps] = useState<AppDescriptor[]>(APPS);
   const [filter, setFilter] = useState<Filter>("all");
   const [q, setQ] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     api.get<{ items: AppDescriptor[] }>("/apps").then((d) => setApps(d.items)).catch(() => {});
@@ -26,13 +28,6 @@ export default function AllAppsPage() {
       return true;
     });
   }, [apps, filter, q]);
-
-  function toggle(id: string) {
-    const target = apps.find((a) => a.id === id);
-    if (!target) return;
-    setApps((prev) => prev.map((a) => (a.id === id ? { ...a, enabled: !a.enabled } : a)));
-    api.patch(`/apps/${id}`, { enabled: !target.enabled }).catch(() => {});
-  }
 
   return (
     <div className="h-full flex flex-col bg-app-bg">
@@ -72,7 +67,9 @@ export default function AllAppsPage() {
               <AppCard
                 key={a.id}
                 app={a}
-                onToggle={() => toggle(a.id)}
+                onOpen={() => {
+                  if (a.routesTo) navigate(a.routesTo);
+                }}
               />
             ))}
           </div>
@@ -107,10 +104,10 @@ function FilterChip({
 
 function AppCard({
   app,
-  onToggle,
+  onOpen,
 }: {
   app: AppDescriptor;
-  onToggle: () => void;
+  onOpen: () => void;
 }) {
   const toneToText: Record<AppDescriptor["tone"], string> = {
     blue: "text-accent",
@@ -124,29 +121,21 @@ function AppCard({
       <div className="flex items-center gap-2.5">
         <DynamicIcon name={app.icon} className={classNames("w-5 h-5", toneToText[app.tone])} />
         <span className="text-ink text-[17px] font-bold">{app.name}</span>
+      </div>
+      <p className="text-ink-muted text-[13px] leading-[1.45]">{app.description}</p>
+      <div className="flex items-center gap-2">
+        <span className="px-1.5 py-0.5 rounded-md bg-app-soft text-ink-muted text-[10.5px] font-bold">
+          {app.category === "system" ? "系统" : app.category === "builtin" ? "内置" : "扩展"}
+        </span>
         <span className="flex-1" />
         <button
           type="button"
-          role="switch"
-          aria-checked={app.enabled}
-          onClick={onToggle}
-          className={classNames(
-            "w-9 h-5 rounded-full relative transition-colors",
-            app.enabled ? "bg-accent" : "bg-line-strong",
-          )}
+          onClick={onOpen}
+          className="h-8 px-3 rounded-lg bg-accent text-white text-[12.5px] font-bold hover:bg-accent-hover"
         >
-          <span
-            className={classNames(
-              "absolute top-0.5 w-4 h-4 rounded-full bg-white shadow-soft transition-transform",
-              app.enabled ? "translate-x-[18px]" : "translate-x-0.5",
-            )}
-          />
+          打开
         </button>
       </div>
-      <p className="text-ink-muted text-[13px] leading-[1.45]">{app.description}</p>
-      <span className="px-1.5 py-0.5 rounded-md bg-app-soft text-ink-muted text-[10.5px] font-bold">
-        {app.category === "system" ? "系统" : app.category === "builtin" ? "内置" : "扩展"}
-      </span>
     </div>
   );
 }
