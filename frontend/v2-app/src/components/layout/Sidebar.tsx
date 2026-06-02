@@ -128,7 +128,8 @@ function Brand() {
 }
 
 function SessionCard({ session }: { session: SessionSummary }) {
-  const isActive = session.id === "sess_canvas_app";
+  const loc = useLocation();
+  const isActive = loc.pathname === linkForSession(session);
   const badge = STATUS_BADGE[session.status];
   return (
     <NavLink
