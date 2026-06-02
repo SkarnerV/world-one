@@ -155,7 +155,7 @@ export function Composer({
   return (
     <form
       onSubmit={submit}
-      className="rounded-lg border border-line-strong bg-white p-2.5 space-y-2"
+      className="rounded-lg border border-line-strong bg-white p-2.5"
     >
       <textarea
         value={text}
@@ -170,7 +170,7 @@ export function Composer({
         rows={2}
         className="w-full bg-transparent text-[13px] leading-[1.45] text-ink placeholder:text-ink-muted outline-none resize-none"
       />
-      <div className="flex items-center gap-1.5">
+      <div className="mt-2 flex items-center gap-1.5">
         {attached ? (
           <span className="inline-flex items-center gap-1.5 h-7 px-2 rounded-lg border border-line bg-app-soft text-ink-muted text-[12px] font-semibold">
             <Paperclip className="w-3.5 h-3.5" />
@@ -202,7 +202,7 @@ export function Composer({
             添加附件
           </button>
         )}
-        <div className="flex-1" />
+        <span className="ml-auto" />
         <button
           type="submit"
           disabled={!text.trim()}
