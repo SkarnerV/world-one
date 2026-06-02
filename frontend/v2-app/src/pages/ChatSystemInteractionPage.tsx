@@ -12,7 +12,7 @@ export default function ChatSystemInteractionPage() {
   const navigate = useNavigate();
 
   function handleConfirm(action: "confirm" | "cancel") {
-    if (action === "confirm") navigate("/canvas");
+    if (action === "confirm") navigate("/apps/memory");
   }
 
   useEffect(() => {

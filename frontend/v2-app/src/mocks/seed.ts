@@ -249,7 +249,7 @@ export const APPS: AppDescriptor[] = [
     category: "extension",
     enabled: true,
     highlight: true,
-    routesTo: "/canvas",
+    routesTo: "/apps/memory",
   },
   {
     id: "app_files",
