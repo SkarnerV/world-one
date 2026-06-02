@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { api } from "@/lib/api";
 import { CHAT_THREAD_SYSTEM_INTERACTION } from "@/mocks/seed";
 import type { ChatThread } from "@/types";
@@ -8,6 +9,11 @@ import { PageHeader } from "@/components/layout/PageHeader";
 
 export default function ChatSystemInteractionPage() {
   const [thread, setThread] = useState<ChatThread>(CHAT_THREAD_SYSTEM_INTERACTION);
+  const navigate = useNavigate();
+
+  function handleConfirm(action: "confirm" | "cancel") {
+    if (action === "confirm") navigate("/canvas");
+  }
 
   useEffect(() => {
     api
@@ -34,7 +40,7 @@ export default function ChatSystemInteractionPage() {
                 m.role === "user" ? (
                   <UserMessage key={m.id} content={m.content} files={m.files} />
                 ) : (
-                  <AssistantMessage key={m.id} message={m} />
+                  <AssistantMessage key={m.id} message={m} onConfirm={handleConfirm} />
                 ),
               )}
             </div>
