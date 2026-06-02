@@ -4,9 +4,10 @@ import { api } from "@/lib/api";
 import { MEMORY_ITEMS, MEMORY_STATS } from "@/mocks/seed";
 import type { MemoryItem, MemoryStats } from "@/types";
 import { Topbar } from "@/components/layout/Topbar";
+import { PageHeader } from "@/components/layout/PageHeader";
 import { classNames } from "@/lib/utils";
 
-type Category = "all" | "fact" | "goal" | "preference" | "pending";
+type Category = "all" | "fact" | "goal" | "pending";
 
 const FILTERS: Array<{ id: Category; label: string }> = [
   { id: "all", label: "全部" },
@@ -44,10 +45,32 @@ export default function MemoryAppPage() {
 
   return (
     <div className="h-full flex flex-col bg-app-bg">
-      <Topbar title="Memory" badge={{ label: "应用模块", tone: "info" }} />
+      <Topbar title="Memory 应用" badge={{ label: "应用模块", tone: "info" }} />
       <div className="flex-1 min-h-0 px-5 py-4 overflow-y-auto">
         <div className="mx-auto max-w-[1640px] space-y-3">
-          <HeaderPanel q={q} setQ={setQ} />
+          <PageHeader
+            page="PAGE 06A"
+            title="Memory 应用打开"
+            description="从 Page 07 全部应用选择 Memory 后进入此衍生页；主 widget 在 Canvas 中承载筛选、保留、新增和删除确认。"
+          />
+          <div className="flex items-center gap-4">
+            <div className="flex-1" />
+            <label className="h-10 w-[412px] rounded-lg border border-line-strong bg-app-soft px-3 flex items-center gap-2 focus-within:border-accent">
+              <Search className="w-3.5 h-3.5 text-ink-muted" />
+              <input
+                value={q}
+                onChange={(e) => setQ(e.target.value)}
+                type="text"
+                placeholder="搜索记忆"
+                className="flex-1 bg-transparent text-[13px] placeholder:text-ink-subtle outline-none"
+              />
+              {q ? (
+                <button type="button" onClick={() => setQ("")} aria-label="清空">
+                  <X className="w-3.5 h-3.5 text-ink-muted" />
+                </button>
+              ) : null}
+            </label>
+          </div>
           <div className="grid grid-cols-4 gap-3">
             <StatCard label="全部记忆" value={stats.total} tone="accent" />
             <StatCard label="事实" value={stats.fact} />
@@ -77,41 +100,6 @@ export default function MemoryAppPage() {
           </div>
         </div>
       </div>
-    </div>
-  );
-}
-
-function HeaderPanel({
-  q,
-  setQ,
-}: {
-  q: string;
-  setQ: (v: string) => void;
-}) {
-  return (
-    <div className="flex items-center gap-4">
-      <div>
-        <div className="text-ink text-[30px] font-bold font-display">Memory</div>
-        <p className="text-ink-muted text-[13.5px]">
-          管理 Agent 的长期记忆：筛选、保留、新增和删除；不提供直接编辑。
-        </p>
-      </div>
-      <div className="flex-1" />
-      <label className="h-10 w-[412px] rounded-lg border border-line-strong bg-app-soft px-3 flex items-center gap-2 focus-within:border-accent">
-        <Search className="w-3.5 h-3.5 text-ink-muted" />
-        <input
-          value={q}
-          onChange={(e) => setQ(e.target.value)}
-          type="text"
-          placeholder="搜索记忆"
-          className="flex-1 bg-transparent text-[13px] placeholder:text-ink-subtle outline-none"
-        />
-        {q ? (
-          <button type="button" onClick={() => setQ("")} aria-label="清空">
-            <X className="w-3.5 h-3.5 text-ink-muted" />
-          </button>
-        ) : null}
-      </label>
     </div>
   );
 }
@@ -170,15 +158,13 @@ function MemoryRow({
       )}
     >
       <div className="text-ink text-[14px] font-bold">{item.title}</div>
-      <div className="flex items-center gap-3">
-        <span
-          className={classNames(
-            "text-[12px]",
-            item.meta.includes("待确认") ? "text-warning-deep" : "text-ink-muted",
-          )}
-        >
-          {item.meta}
-        </span>
+      <div
+        className={classNames(
+          "text-[12px]",
+          item.meta.includes("待确认") ? "text-warning-deep" : "text-ink-muted",
+        )}
+      >
+        {item.meta}
       </div>
       <div className="flex items-center gap-3">
         <span
@@ -194,6 +180,7 @@ function MemoryRow({
           {item.source}
         </span>
         <span className="flex-1" />
+        <span className="text-[12px] text-danger font-extrabold">操作：</span>
         <button
           type="button"
           onClick={() => onAction(item.id, "keep")}

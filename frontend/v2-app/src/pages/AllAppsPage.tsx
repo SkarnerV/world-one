@@ -1,10 +1,10 @@
 import { useEffect, useMemo, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { Search, Database, Upload, CalendarClock, ListTodo, Calendar, PenTool } from "lucide-react";
+import { Search } from "lucide-react";
 import { api } from "@/lib/api";
 import { APPS } from "@/mocks/seed";
 import type { AppDescriptor } from "@/types";
 import { Topbar } from "@/components/layout/Topbar";
+import { PageHeader } from "@/components/layout/PageHeader";
 import { DynamicIcon } from "@/components/chat/SurfaceRenderer";
 import { classNames } from "@/lib/utils";
 
@@ -14,7 +14,6 @@ export default function AllAppsPage() {
   const [apps, setApps] = useState<AppDescriptor[]>(APPS);
   const [filter, setFilter] = useState<Filter>("all");
   const [q, setQ] = useState("");
-  const navigate = useNavigate();
 
   useEffect(() => {
     api.get<{ items: AppDescriptor[] }>("/apps").then((d) => setApps(d.items)).catch(() => {});
@@ -40,16 +39,13 @@ export default function AllAppsPage() {
       <Topbar title="全部应用" badge={{ label: `${filtered.length} 个应用`, tone: "neutral" }} />
       <div className="flex-1 min-h-0 px-5 py-4 overflow-y-auto">
         <div className="mx-auto max-w-[1640px] space-y-3">
+          <PageHeader
+            page="PAGE 06"
+            title="全部应用"
+            description="从全局应用入口进入；07 聚合可打开的应用模块，Memory 作为 07A 衍生页在 Canvas 中展开。"
+          />
           <div className="rounded-xl border border-line bg-white p-5 space-y-3">
             <div className="flex items-center gap-4">
-              <div>
-                <div className="text-ink text-[30px] font-bold font-display leading-tight">
-                  全部应用
-                </div>
-                <p className="text-ink-muted text-[13.5px]">
-                  从全局应用入口进入；07 聚合可打开的应用模块，Memory 作为 07A 衍生页在 Canvas 中展开。
-                </p>
-              </div>
               <div className="flex-1" />
               <label className="h-10 w-[280px] rounded-lg border border-line-strong bg-app-soft px-3 flex items-center gap-2 focus-within:border-accent">
                 <Search className="w-3.5 h-3.5 text-ink-muted" />
@@ -71,14 +67,12 @@ export default function AllAppsPage() {
               </FilterChip>
             </div>
           </div>
-
           <div className="grid grid-cols-2 gap-3">
             {filtered.map((a) => (
               <AppCard
                 key={a.id}
                 app={a}
                 onToggle={() => toggle(a.id)}
-                onOpen={() => (a.routesTo ? navigate(a.routesTo) : null)}
               />
             ))}
           </div>
@@ -114,11 +108,9 @@ function FilterChip({
 function AppCard({
   app,
   onToggle,
-  onOpen,
 }: {
   app: AppDescriptor;
   onToggle: () => void;
-  onOpen: () => void;
 }) {
   const toneToText: Record<AppDescriptor["tone"], string> = {
     blue: "text-accent",
@@ -128,54 +120,33 @@ function AppCard({
     slate: "text-ink-muted",
   };
   return (
-    <div
-      className={classNames(
-        "rounded-md border p-4 space-y-2.5 bg-white",
-        app.highlight ? "border-accent-ring" : "border-line",
-      )}
-    >
+    <div className="rounded-md border border-line bg-white p-4 space-y-2.5">
       <div className="flex items-center gap-2.5">
         <DynamicIcon name={app.icon} className={classNames("w-5 h-5", toneToText[app.tone])} />
         <span className="text-ink text-[17px] font-bold">{app.name}</span>
         <span className="flex-1" />
-        <Switch checked={app.enabled} onChange={onToggle} />
-      </div>
-      <p className="text-ink-muted text-[13px] leading-[1.45]">{app.description}</p>
-      <div className="flex items-center gap-2">
-        <span className="px-1.5 py-0.5 rounded-md bg-app-soft text-ink-muted text-[10.5px] font-bold">
-          {app.category === "system" ? "系统" : app.category === "builtin" ? "内置" : "扩展"}
-        </span>
-        <span className="flex-1" />
         <button
           type="button"
-          onClick={onOpen}
-          className="h-8 px-3 rounded-lg text-accent text-[12.5px] font-bold hover:bg-accent-soft"
+          role="switch"
+          aria-checked={app.enabled}
+          onClick={onToggle}
+          className={classNames(
+            "w-9 h-5 rounded-full relative transition-colors",
+            app.enabled ? "bg-accent" : "bg-line-strong",
+          )}
         >
-          打开
+          <span
+            className={classNames(
+              "absolute top-0.5 w-4 h-4 rounded-full bg-white shadow-soft transition-transform",
+              app.enabled ? "translate-x-[18px]" : "translate-x-0.5",
+            )}
+          />
         </button>
       </div>
+      <p className="text-ink-muted text-[13px] leading-[1.45]">{app.description}</p>
+      <span className="px-1.5 py-0.5 rounded-md bg-app-soft text-ink-muted text-[10.5px] font-bold">
+        {app.category === "system" ? "系统" : app.category === "builtin" ? "内置" : "扩展"}
+      </span>
     </div>
-  );
-}
-
-function Switch({ checked, onChange }: { checked: boolean; onChange: () => void }) {
-  return (
-    <button
-      type="button"
-      role="switch"
-      aria-checked={checked}
-      onClick={onChange}
-      className={classNames(
-        "w-9 h-5 rounded-full relative transition-colors",
-        checked ? "bg-accent" : "bg-line-strong",
-      )}
-    >
-      <span
-        className={classNames(
-          "absolute top-0.5 w-4 h-4 rounded-full bg-white shadow-soft transition-transform",
-          checked ? "translate-x-[18px]" : "translate-x-0.5",
-        )}
-      />
-    </button>
   );
 }

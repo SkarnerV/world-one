@@ -4,6 +4,7 @@ import { api } from "@/lib/api";
 import { CHAT_THREAD_SYSTEM_INTERACTION } from "@/mocks/seed";
 import type { ChatThread, MemoryItem, MemoryStats } from "@/types";
 import { Topbar } from "@/components/layout/Topbar";
+import { PageHeader } from "@/components/layout/PageHeader";
 import { AssistantMessage, Composer, UserMessage } from "@/components/chat/MessageBubble";
 import { classNames } from "@/lib/utils";
 
@@ -36,7 +37,14 @@ export default function CanvasModePage() {
   return (
     <div className="h-full flex flex-col bg-app-bg">
       <Topbar title="Memory 应用模块" badge={{ label: "画布模式", tone: "info" }} />
-      <div className="flex-1 min-h-0 px-5 py-4">
+      <div className="px-5 pt-4">
+        <PageHeader
+          page="PAGE 02"
+          title="画布模式"
+          description="用户从应用面板选择 Memory 后进入画布；Canvas 承载 memory-one 的主应用模块，只保留筛选、删除和新增入口。"
+        />
+      </div>
+      <div className="flex-1 min-h-0 px-5 pb-4">
         <div className="h-full grid grid-cols-[420px_1fr] gap-3">
           <NarrowChat thread={thread} />
           <CanvasPanel
@@ -88,7 +96,10 @@ function CanvasPanel({
     <div className="rounded-lg border border-line bg-white flex flex-col overflow-hidden">
       <div className="px-5 pt-4 pb-3 space-y-3 border-b border-line bg-app-soft">
         <div className="flex items-center gap-3">
-          <button className="h-9 px-2.5 rounded-lg border border-line-strong bg-white inline-flex items-center gap-1.5 text-[13px] font-bold text-ink hover:bg-app-soft">
+          <button
+            type="button"
+            className="shrink-0 h-9 px-2.5 rounded-lg border border-line-strong bg-white inline-flex items-center gap-1.5 text-[13px] font-bold text-ink hover:bg-app-soft whitespace-nowrap"
+          >
             <X className="w-3.5 h-3.5 text-ink-muted" />
             退出画布
           </button>

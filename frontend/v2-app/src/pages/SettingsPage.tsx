@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import { ChevronDown, RefreshCw, CircleCheck, Eye, EyeOff, Save } from "lucide-react";
+import { ChevronDown, RefreshCw, CircleCheck, Eye, EyeOff } from "lucide-react";
 import { api } from "@/lib/api";
 import { SETTINGS } from "@/mocks/seed";
 import type { ConnectionStatus, EnvVar, ModelProvider, SettingsResponse } from "@/types";
 import { Topbar } from "@/components/layout/Topbar";
+import { PageHeader } from "@/components/layout/PageHeader";
 import { classNames } from "@/lib/utils";
 
 export default function SettingsPage() {
@@ -36,10 +37,23 @@ export default function SettingsPage() {
 
   return (
     <div className="h-full flex flex-col bg-app-bg">
-      <Topbar title="设置" badge={{ label: "本地配置", tone: "neutral" }} />
+      <Topbar title="设置面板" badge={{ label: "本地配置", tone: "neutral" }} />
       <div className="flex-1 min-h-0 px-5 py-4 overflow-y-auto">
         <div className="mx-auto max-w-[1640px] space-y-3">
-          <PageHeader />
+          <PageHeader
+            page="PAGE 03"
+            title="设置面板"
+            description="配置模型服务、运行环境变量和连接状态，保持与其他页面一致的控制台布局。"
+          />
+          <div className="flex items-center gap-3">
+            <div className="flex-1" />
+            <button
+              type="button"
+              className="h-10 px-3.5 rounded-lg bg-accent text-white text-[13.5px] font-semibold inline-flex items-center gap-1.5 hover:bg-accent-hover"
+            >
+              保存修改
+            </button>
+          </div>
           <div className="grid grid-cols-[1fr_360px] gap-3">
             <FormPanel
               providers={data.providers}
@@ -57,25 +71,6 @@ export default function SettingsPage() {
           </div>
         </div>
       </div>
-    </div>
-  );
-}
-
-function PageHeader() {
-  return (
-    <div className="rounded-lg border border-line bg-white p-5 flex items-center gap-3">
-      <div>
-        <div className="text-ink-muted text-[12px] font-extrabold">PAGE 03</div>
-        <h1 className="text-[28px] font-bold font-display">设置面板</h1>
-        <p className="mt-1 text-ink-muted text-[13px]">
-          配置模型服务、运行环境变量和连接状态，保持与其他页面一致的控制台布局。
-        </p>
-      </div>
-      <div className="flex-1" />
-      <button className="h-10 px-3.5 rounded-lg bg-accent text-white text-[13.5px] font-semibold inline-flex items-center gap-1.5 hover:bg-accent-hover">
-        <Save className="w-3.5 h-3.5" />
-        保存修改
-      </button>
     </div>
   );
 }
@@ -99,7 +94,40 @@ function FormPanel({
   return (
     <div className="rounded-lg border border-line bg-white p-5 space-y-4">
       <SectionLabel>服务商</SectionLabel>
-      <Selector providers={providers} selectedId={selectedId} onPick={onPickProvider} />
+      <div className="space-y-2">
+        {providers.map((p) => {
+          const isSel = p.id === selectedId;
+          return (
+            <button
+              key={p.id}
+              type="button"
+              onClick={() => onPickProvider(p.id)}
+              className={classNames(
+                "w-full h-[54px] px-3.5 rounded-lg flex items-center gap-2 border transition-colors",
+                isSel
+                  ? "bg-accent-soft border-accent-ring"
+                  : "bg-app-soft border-line hover:bg-line/50",
+              )}
+            >
+              <span
+                className={classNames(
+                  "text-[14px] font-bold",
+                  isSel ? "text-accent-hover" : "text-ink",
+                )}
+              >
+                {p.name.replace("（推荐）", "")}
+              </span>
+              {p.recommended ? (
+                <span className="px-1.5 py-0.5 rounded-md bg-accent text-white text-[10.5px] font-extrabold">
+                  推荐
+                </span>
+              ) : null}
+              <span className="flex-1" />
+              <ChevronDown className="w-4 h-4 text-ink-muted" />
+            </button>
+          );
+        })}
+      </div>
 
       <Field
         label="API 密钥"
@@ -139,76 +167,6 @@ function FormPanel({
   );
 }
 
-function Selector({
-  providers,
-  selectedId,
-  onPick,
-}: {
-  providers: ModelProvider[];
-  selectedId: string;
-  onPick: (id: string) => void;
-}) {
-  return (
-    <div className="space-y-2">
-      {providers.map((p) => {
-        const isSel = p.id === selectedId;
-        return (
-          <button
-            key={p.id}
-            type="button"
-            onClick={() => onPick(p.id)}
-            className={classNames(
-              "w-full h-[58px] px-3.5 rounded-lg flex items-center gap-2.5 border transition-colors",
-              isSel
-                ? "bg-accent-soft border-accent-ring"
-                : "bg-app-soft border-line hover:bg-line/50",
-            )}
-          >
-            <span
-              className={classNames(
-                "text-[14px] font-bold",
-                isSel ? "text-accent-hover" : "text-ink",
-              )}
-            >
-              {p.name.replace("（推荐）", "")}
-            </span>
-            {p.recommended ? (
-              <span className="px-1.5 py-0.5 rounded-md bg-accent text-white text-[10.5px] font-extrabold">
-                推荐
-              </span>
-            ) : null}
-            <span className="flex-1" />
-            <ChevronDown className="w-4 h-4 text-ink-muted" />
-          </button>
-        );
-      })}
-    </div>
-  );
-}
-
-function Field({
-  label,
-  value,
-  mono,
-  right,
-}: {
-  label: string;
-  value: string;
-  mono?: boolean;
-  right?: React.ReactNode;
-}) {
-  return (
-    <div className="rounded-lg border border-line bg-app-soft p-3 space-y-1.5">
-      <div className="text-ink-muted text-[11px] font-extrabold">{label}</div>
-      <div className={classNames("flex items-center gap-2", mono ? "font-mono" : "")}>
-        <span className="text-[13.5px] text-ink truncate">{value}</span>
-        <span className="flex-1" />
-        {right}
-      </div>
-    </div>
-  );
-}
-
 function SidePanel({
   connection,
   testing,
@@ -243,6 +201,29 @@ function SidePanel({
         <RefreshCw className={classNames("w-3.5 h-3.5", testing ? "animate-spin" : "")} />
         {testing ? "测试中…" : "测试连接"}
       </button>
+    </div>
+  );
+}
+
+function Field({
+  label,
+  value,
+  mono,
+  right,
+}: {
+  label: string;
+  value: string;
+  mono?: boolean;
+  right?: React.ReactNode;
+}) {
+  return (
+    <div className="rounded-lg border border-line bg-app-soft p-3 space-y-1.5">
+      <div className="text-ink-muted text-[11px] font-extrabold">{label}</div>
+      <div className={classNames("flex items-center gap-2", mono ? "font-mono" : "")}>
+        <span className="text-[13.5px] text-ink truncate">{value}</span>
+        <span className="flex-1" />
+        {right}
+      </div>
     </div>
   );
 }
