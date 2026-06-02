@@ -142,14 +142,6 @@ function SessionCard({ session }: { session: SessionSummary }) {
       )}
     >
       <div className="flex items-center gap-1.5">
-        <span
-          className={classNames(
-            "w-6 h-6 rounded-md flex items-center justify-center text-[10.5px] font-extrabold",
-            isActive ? "bg-white/15 text-white" : "bg-white/10 text-ink-onDark",
-          )}
-        >
-          {session.title.slice(0, 2)}
-        </span>
         <span className="flex-1 text-[13px] font-semibold text-ink-onDark truncate">
           {session.title}
         </span>
