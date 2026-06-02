@@ -286,7 +286,7 @@ function linkForSession(s: SessionSummary): string {
 }
 
 function filterSessions(items: SessionSummary[], filter: Filter): SessionSummary[] {
-  if (filter === "all") return items.slice(0, 3);
+  if (filter === "all") return items;
   return items.filter((i) => {
     if (filter === "running") return i.status === "active" || i.status === "running";
     if (filter === "pending") return i.status === "pending";
