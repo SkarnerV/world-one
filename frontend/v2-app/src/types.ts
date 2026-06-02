@@ -1,5 +1,5 @@
 export type SessionKind = "conversation" | "task" | "event" | "app";
-export type SessionStatus = "active" | "idle" | "running" | "archived";
+export type SessionStatus = "active" | "running" | "pending" | "done" | "idle" | "archived";
 
 export interface SessionSummary {
   id: string;

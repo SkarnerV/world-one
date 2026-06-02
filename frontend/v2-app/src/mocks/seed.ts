@@ -13,56 +13,65 @@ import type {
 const now = new Date();
 const iso = (offsetMin: number) => new Date(now.getTime() - offsetMin * 60_000).toISOString();
 
+const SESSION_UPDATED_MIN = {
+  canvas: 2,
+  audit: 11,
+  review: 34,
+  sr_add: 7,
+  event: 120,
+  calendar: 220,
+};
+
 export const SESSIONS: SessionSummary[] = [
   {
     id: "sess_canvas_app",
-    title: "Canvas 应用详情",
+    title: "询问Canvas应用详情",
     kind: "conversation",
     status: "active",
     preview: "当前可用应用如下…",
-    updatedAt: iso(2),
+    updatedAt: iso(SESSION_UPDATED_MIN.canvas),
     pinned: true,
   },
   {
     id: "sess_memory_audit",
     title: "记忆审计",
     kind: "task",
-    status: "running",
+    status: "pending",
     preview: "正在扫描 workspace 范围内的语义记忆…",
-    updatedAt: iso(11),
+    updatedAt: iso(SESSION_UPDATED_MIN.audit),
   },
   {
     id: "sess_canvas_review",
     title: "画布关系复盘",
     kind: "task",
-    status: "idle",
+    status: "done",
     preview: "对比 canvas context 与 ontology session 的关联…",
-    updatedAt: iso(34),
+    updatedAt: iso(SESSION_UPDATED_MIN.review),
   },
   {
     id: "sess_sr_add",
     title: "在 SR12346566 下添加 AR",
     kind: "task",
-    status: "running",
+    status: "pending",
     preview: "Agent 正在补充需求创建信息…",
-    updatedAt: iso(7),
+    updatedAt: iso(SESSION_UPDATED_MIN.sr_add),
   },
   {
     id: "sess_event_blocker",
     title: "外部审批：上线单 #4821",
     kind: "event",
-    status: "idle",
+    status: "pending",
     preview: "等待审批人李四确认。",
-    updatedAt: iso(120),
+    updatedAt: iso(SESSION_UPDATED_MIN.event),
   },
   {
     id: "sess_app_calendar",
     title: "日程应用",
     kind: "app",
-    status: "idle",
+    status: "done",
     appId: "app_calendar",
     preview: "查看本周日程并预约会议室。",
-    updatedAt: iso(220),
+    updatedAt: iso(SESSION_UPDATED_MIN.calendar),
   },
 ];
 
