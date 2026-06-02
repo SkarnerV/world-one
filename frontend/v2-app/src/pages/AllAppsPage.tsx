@@ -34,7 +34,15 @@ export default function AllAppsPage() {
       <div className="flex-1 min-h-0 px-5 py-4 overflow-y-auto">
         <div className="mx-auto max-w-[1640px] space-y-3">
           <div className="rounded-xl border border-line bg-white p-5 space-y-3">
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2">
+                <FilterChip active={filter === "all"} onClick={() => setFilter("all")}>
+                  全部
+                </FilterChip>
+                <FilterChip active={filter === "enabled"} onClick={() => setFilter("enabled")}>
+                  已启用
+                </FilterChip>
+              </div>
               <div className="flex-1" />
               <label className="h-10 w-[280px] rounded-lg border border-line-strong bg-app-soft px-3 flex items-center gap-2 focus-within:border-accent">
                 <Search className="w-3.5 h-3.5 text-ink-muted" />
@@ -46,14 +54,6 @@ export default function AllAppsPage() {
                   className="flex-1 bg-transparent text-[13px] placeholder:text-ink-subtle outline-none"
                 />
               </label>
-            </div>
-            <div className="flex items-center gap-2">
-              <FilterChip active={filter === "all"} onClick={() => setFilter("all")}>
-                全部
-              </FilterChip>
-              <FilterChip active={filter === "enabled"} onClick={() => setFilter("enabled")}>
-                已启用
-              </FilterChip>
             </div>
           </div>
           <div className="grid grid-cols-2 gap-3">
