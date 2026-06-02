@@ -24,7 +24,7 @@ export default function ChatSystemInteractionPage() {
   return (
     <div className="h-full flex flex-col bg-app-bg">
       <Topbar title="系统交互状态" badge={{ label: "已就绪", tone: "success" }} />
-      <div className="flex-1 min-h-0 px-5 py-4">
+      <div className="flex-1 min-h-0">
         <div className="h-full rounded-lg border border-line bg-white flex flex-col overflow-hidden">
           <div className="flex-1 min-h-0 overflow-y-auto px-1.5 py-2">
             <div className="max-w-[1648px] mx-auto space-y-2.5">

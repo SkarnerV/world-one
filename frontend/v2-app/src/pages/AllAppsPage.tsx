@@ -31,7 +31,7 @@ export default function AllAppsPage() {
   return (
     <div className="h-full flex flex-col bg-app-bg">
       <Topbar title="全部应用" badge={{ label: `${filtered.length} 个应用`, tone: "neutral" }} />
-      <div className="flex-1 min-h-0 px-5 py-4 overflow-y-auto">
+      <div className="flex-1 min-h-0 overflow-y-auto">
         <div className="mx-auto max-w-[1640px] space-y-3">
           <div className="rounded-xl border border-line bg-white p-5 space-y-3">
             <div className="flex items-center gap-3">

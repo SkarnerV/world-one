@@ -36,7 +36,7 @@ export default function CanvasModePage() {
   return (
     <div className="h-full flex flex-col bg-app-bg">
       <Topbar title="Memory 应用模块" badge={{ label: "画布模式", tone: "info" }} />
-      <div className="flex-1 min-h-0 px-5 py-4">
+      <div className="flex-1 min-h-0">
         <div className="h-full grid grid-cols-[420px_1fr] gap-3">
           <NarrowChat thread={thread} />
           <CanvasPanel

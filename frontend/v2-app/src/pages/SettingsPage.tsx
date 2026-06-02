@@ -37,7 +37,7 @@ export default function SettingsPage() {
   return (
     <div className="h-full flex flex-col bg-app-bg">
       <Topbar title="设置面板" badge={{ label: "本地配置", tone: "neutral" }} />
-      <div className="flex-1 min-h-0 px-5 py-4 overflow-y-auto">
+      <div className="flex-1 min-h-0 overflow-y-auto">
         <div className="mx-auto max-w-[1640px] space-y-3">
           <div className="flex items-center gap-3">
             <div className="flex-1" />
