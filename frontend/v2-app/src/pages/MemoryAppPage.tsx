@@ -4,7 +4,6 @@ import { api } from "@/lib/api";
 import { MEMORY_ITEMS, MEMORY_STATS } from "@/mocks/seed";
 import type { MemoryItem, MemoryStats } from "@/types";
 import { Topbar } from "@/components/layout/Topbar";
-import { PageHeader } from "@/components/layout/PageHeader";
 import { classNames } from "@/lib/utils";
 
 type Category = "all" | "fact" | "goal" | "pending";
@@ -48,11 +47,6 @@ export default function MemoryAppPage() {
       <Topbar title="Memory 应用" badge={{ label: "应用模块", tone: "info" }} />
       <div className="flex-1 min-h-0 px-5 py-4 overflow-y-auto">
         <div className="mx-auto max-w-[1640px] space-y-3">
-          <PageHeader
-            page="PAGE 06A"
-            title="Memory 应用打开"
-            description="从 Page 07 全部应用选择 Memory 后进入此衍生页；主 widget 在 Canvas 中承载筛选、保留、新增和删除确认。"
-          />
           <div className="flex items-center gap-4">
             <div className="flex-1" />
             <label className="h-10 w-[412px] rounded-lg border border-line-strong bg-app-soft px-3 flex items-center gap-2 focus-within:border-accent">

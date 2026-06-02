@@ -5,14 +5,13 @@ import { CHAT_THREAD_SYSTEM_INTERACTION } from "@/mocks/seed";
 import type { ChatThread } from "@/types";
 import { AssistantMessage, Composer, UserMessage } from "@/components/chat/MessageBubble";
 import { Topbar } from "@/components/layout/Topbar";
-import { PageHeader } from "@/components/layout/PageHeader";
 
 export default function ChatSystemInteractionPage() {
   const [thread, setThread] = useState<ChatThread>(CHAT_THREAD_SYSTEM_INTERACTION);
   const navigate = useNavigate();
 
   function handleConfirm(action: "confirm" | "cancel") {
-    if (action === "confirm") navigate("/apps/memory");
+    if (action === "confirm") navigate("/canvas");
   }
 
   useEffect(() => {
@@ -25,14 +24,7 @@ export default function ChatSystemInteractionPage() {
   return (
     <div className="h-full flex flex-col bg-app-bg">
       <Topbar title="系统交互状态" badge={{ label: "已就绪", tone: "success" }} />
-      <div className="px-5 pt-4">
-        <PageHeader
-          page="PAGE 01C"
-          title="聊天页变体：系统交互状态"
-          description="Page 1 的衍生状态：展示文件上传、应用选择、确认提示、加载和错误如何嵌入同一条 Agent 对话流。"
-        />
-      </div>
-      <div className="flex-1 min-h-0 px-5 pb-4">
+      <div className="flex-1 min-h-0 px-5 py-4">
         <div className="h-full rounded-lg border border-line bg-white flex flex-col overflow-hidden">
           <div className="flex-1 min-h-0 overflow-y-auto px-1.5 py-2">
             <div className="max-w-[1648px] mx-auto space-y-2.5">

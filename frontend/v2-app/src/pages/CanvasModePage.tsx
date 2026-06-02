@@ -4,7 +4,6 @@ import { api } from "@/lib/api";
 import { CHAT_THREAD_SYSTEM_INTERACTION } from "@/mocks/seed";
 import type { ChatThread, MemoryItem, MemoryStats } from "@/types";
 import { Topbar } from "@/components/layout/Topbar";
-import { PageHeader } from "@/components/layout/PageHeader";
 import { AssistantMessage, Composer, UserMessage } from "@/components/chat/MessageBubble";
 import { classNames } from "@/lib/utils";
 
@@ -37,14 +36,7 @@ export default function CanvasModePage() {
   return (
     <div className="h-full flex flex-col bg-app-bg">
       <Topbar title="Memory 应用模块" badge={{ label: "画布模式", tone: "info" }} />
-      <div className="px-5 pt-4">
-        <PageHeader
-          page="PAGE 02"
-          title="画布模式"
-          description="用户从应用面板选择 Memory 后进入画布；Canvas 承载 memory-one 的主应用模块，只保留筛选、删除和新增入口。"
-        />
-      </div>
-      <div className="flex-1 min-h-0 px-5 pb-4">
+      <div className="flex-1 min-h-0 px-5 py-4">
         <div className="h-full grid grid-cols-[420px_1fr] gap-3">
           <NarrowChat thread={thread} />
           <CanvasPanel

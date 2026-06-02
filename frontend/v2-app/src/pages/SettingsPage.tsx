@@ -4,7 +4,6 @@ import { api } from "@/lib/api";
 import { SETTINGS } from "@/mocks/seed";
 import type { ConnectionStatus, EnvVar, ModelProvider, SettingsResponse } from "@/types";
 import { Topbar } from "@/components/layout/Topbar";
-import { PageHeader } from "@/components/layout/PageHeader";
 import { classNames } from "@/lib/utils";
 
 export default function SettingsPage() {
@@ -40,11 +39,6 @@ export default function SettingsPage() {
       <Topbar title="设置面板" badge={{ label: "本地配置", tone: "neutral" }} />
       <div className="flex-1 min-h-0 px-5 py-4 overflow-y-auto">
         <div className="mx-auto max-w-[1640px] space-y-3">
-          <PageHeader
-            page="PAGE 03"
-            title="设置面板"
-            description="配置模型服务、运行环境变量和连接状态，保持与其他页面一致的控制台布局。"
-          />
           <div className="flex items-center gap-3">
             <div className="flex-1" />
             <button

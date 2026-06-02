@@ -5,7 +5,6 @@ import { api } from "@/lib/api";
 import { APPS } from "@/mocks/seed";
 import type { AppDescriptor } from "@/types";
 import { Topbar } from "@/components/layout/Topbar";
-import { PageHeader } from "@/components/layout/PageHeader";
 import { DynamicIcon } from "@/components/chat/SurfaceRenderer";
 import { classNames } from "@/lib/utils";
 
@@ -34,11 +33,6 @@ export default function AllAppsPage() {
       <Topbar title="全部应用" badge={{ label: `${filtered.length} 个应用`, tone: "neutral" }} />
       <div className="flex-1 min-h-0 px-5 py-4 overflow-y-auto">
         <div className="mx-auto max-w-[1640px] space-y-3">
-          <PageHeader
-            page="PAGE 06"
-            title="全部应用"
-            description="从全局应用入口进入；07 聚合可打开的应用模块，Memory 作为 07A 衍生页在 Canvas 中展开。"
-          />
           <div className="rounded-xl border border-line bg-white p-5 space-y-3">
             <div className="flex items-center gap-4">
               <div className="flex-1" />
